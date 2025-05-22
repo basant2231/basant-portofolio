@@ -54,7 +54,8 @@ ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 // Typed JS
 const typed = new Typed('.multiple-text', {
-    strings: ['Writer  كاتب', 'Novelist  روائي', 'Author  مؤلف'],
+    strings: ['Flutter Developer', 'Software Engineer', 'Mobile App Developer',],
+
     typeSpeed: 100,
     backSpeed: 100,
     backDelay: 1000,
