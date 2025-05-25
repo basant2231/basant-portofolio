@@ -111,7 +111,7 @@ form.addEventListener('submit', (e) => {
     console.log('Sending email with data:', templateParams); // Debugging
 
     // Send email using emailjs
-    emailjs.send('service_uz2xdka', 'template_jtfo0um', templateParams)
+    emailjs.send("service_nj9sf0h","template_nkq8523", templateParams)
         .then((response) => {
             console.log('SUCCESS!', response.status, response.text); // Debugging
             alert('تم إرسال الرسالة بنجاح!');
@@ -132,3 +132,10 @@ form.addEventListener('submit', (e) => {
         });
 });
 
+ document.addEventListener('DOMContentLoaded', function() {
+      // Make iframes focusable for accessibility
+      const iframes = document.querySelectorAll('iframe');
+      iframes.forEach(iframe => {
+        iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
+      });
+    });

@@ -1,222 +1,308 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basant Adel Eissa</title>
-
-    <!-- Box Icons -->
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basant Adel Eissa – Flutter Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-    <!-- Header Design -->
-    <header class="header">
-        <a href="#" class="logo">Basant <span class="highlight">Eissa</span></a>
-        <i class='bx bx-menu' id="menu-icon"></i>
-        <nav class="navbar">
-            <a href="#home" class="active">Home</a>
-            <a href="#about">About</a>
-            <a href="#portfolio">TV Appearances</a>
-            <a href="#services">Groups</a>
-            <a href="#contact">Contact Me</a>
-        </nav>
-    </header>
 
-    <!-- Home Section -->
-    <section class="home" id="home">
-        <div class="home-content">
-            <h3>Welcome, my name is</h3>
-            <h1>Basant Adel Eissa</h1>
-            <h3>And I am a <span class="multiple-text"></span></h3>
-            <p class="poetic-description">
-                <br>
-                <span class="larger-text">m a Flutter developer passionate about building efficient, beautiful cross-platform apps. Based in Egypt, I have worked remotely for companies in Pakistan and France, contributing to 8+ full apps. in the 
-</span><br>
-            </p>
-      <div class="social-actions" style="display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
-           <a href="assets/Basant Adel Eissa Resume.pdf" class="btn download-cv" download>Download CV</a>
-    <div class="social-media" style="display: flex; gap: 10px;">
-        <a href="https://web.facebook.com/basant.adel.39501" target="_blank"><i class='bx bxl-facebook'></i></a>
-        <a href="https://www.linkedin.com/in/basant-eissa-bb29791b3/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-        <a href="#contact"><i class='bx bx-envelope'></i></a>
+  <!-- Header -->
+  <header class="header">
+    <a href="#" class="logo">Basant <span class="highlight">Eissa</span></a>
+    <i class='bx bx-menu' id="menu-icon"></i>
+    <nav class="navbar">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Home -->
+  <section class="home" id="home">
+    <div class="home-content">
+      <h3>Welcome, my name is</h3>
+      <h1>Basant Adel Eissa</h1>
+      <h3>And I am a <span class="multiple-text"></span></h3>
+      <p class="poetic-description">
+        <span class="larger-text">
+          I'm a Flutter developer passionate about building efficient, beautiful cross-platform apps. Based in Egypt, I've worked remotely for companies in Pakistan and France, contributing to 8+ full apps.
+        </span>
+      </p>
+      <div class="social-actions">
+        <a href="assets/Basant Adel Eissa Resume.pdf" class="btn download-cv" download>Download CV</a>
+        <div class="social-media">
+          <a href="https://web.facebook.com/basant.adel.39501" target="_blank"><i class='bx bxl-facebook'></i></a>
+          <a href="https://www.linkedin.com/in/basant-eissa-bb29791b3/" target="_blank"><i class='bx bxl-linkedin'></i></a>
+          <a href="#contact"><i class='bx bx-envelope'></i></a>
+        </div>
+      </div>
     </div>
- 
-</div>
-
-
-        </div>
-        <div class="home-img">
-            <img src="assets/b8.jpg" alt="Profile Image">
-        </div>
-    </section>
-
-    <!-- About Section -->
-<section class="about" id="about">
-    <div class="about-img">
-        <h2 class="heading">Get to Know Me!</h2>
-        <br><br>
-        <img src="assets/b2.jpg" alt="Basant Eissa Photo" class="second-image">
+    <div class="home-img">
+      <img src="assets/b8.jpg" alt="Profile Image" />
     </div>
-    <div class="about-content">
+  </section>
 
-        <!-- Resume Summary -->
-        <div class="resume-section">
-            <h3>Who I Am</h3>
-            <p>I'm a Flutter developer passionate about building efficient, beautiful cross-platform apps. Based in Egypt, I have worked remotely for companies in Pakistan and France, contributing to 8+ full apps.</p>
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="about-container">
+      <div class="about-full">
+        <h2 class="about-heading">Get to Know Me!</h2>
 
-            <h3>Hard Skills</h3>
-            <ul>
-                <li>Dart, Flutter, OOP, SOLID Principles</li>
-                <li>BLoC, Provider, GetX</li>
-                <li>Firebase, REST APIs, Clean Code</li>
-                <li>Animations, Notifications, Payment Integration</li>
-                <li>Localization, Responsive Design</li>
-                <li>Git, GitHub, Problem Solving</li>
-            </ul>
-
-            <h3>Soft Skills</h3>
-            <ul>
-                <li>Time Management, Teamwork, Critical Thinking</li>
-                <li>Conflict Resolution, Adaptability, Flexibility</li>
-            </ul>
-
-            <h3>Experience</h3>
-            <p><strong>Splenify (Remote – Pakistan)</strong> – Feb 2024 to May 2024<br>
-                Developed 6 full Flutter apps in a full-time remote role.
-            </p>
-            <p><strong>Farkito (Remote – France)</strong> – Feb 2024 to May 2024<br>
-                Developed and released 2 apps (Diyafa Customer & Diyafa Staff), worked closely with backend team, and earned a recommendation letter.
-            </p>
-
-            <h3>Projects</h3>
-            <ul>
-                <li><strong>Diyafa Staff</strong> – Service management app for 10 hotels (multi-role, API integrated)</li>
-                <li><strong>Diyafa Customer</strong> – Order & delivery app with robust UX and error handling</li>
-                <li><strong>Choose Your Champ</strong> – Bodybuilding app for ranking and competitions</li>
-                <li><strong>SPARK</strong> – Team task management system with chat, deadlines & BLoC</li>
-                <li><strong>Qata3</strong> – App listing 35,000+ products from 2,700+ firms</li>
-                <li><strong>Face Detection App</strong> – Flutter + TensorFlow Lite for facial recognition</li>
-            </ul>
-
-            <h3>Education</h3>
-            <p>Bachelor’s in Computer Science & Information – Tanta University</p>
-
-            <h3>Languages</h3>
-            <ul>
-                <li>Arabic – Native (C2)</li>
-                <li>English – Above Average (B2)</li>
-            </ul>
-
-            <h3>Find Me Online</h3>
-            <ul>
-                <li><a href="https://www.linkedin.com/in/basant-eissa-bb29791b3/" target="_blank">LinkedIn</a></li>
-                <li><a href="https://github.com/basant2231" target="_blank">GitHub</a></li>
-                <li>Email: <a href="mailto:basantadeleissa@gmail.com">basantadeleissa@gmail.com</a></li>
-            </ul>
+        <div class="about-card">
+          <h3>Hard Skills</h3>
+          <div class="skills-box">
+            <span class="skill-pill">Dart</span>
+            <span class="skill-pill">Flutter</span>
+            <span class="skill-pill">OOP</span>
+            <span class="skill-pill">SOLID</span>
+            <span class="skill-pill">BLoC</span>
+            <span class="skill-pill">Provider</span>
+            <span class="skill-pill">GetX</span>
+            <span class="skill-pill">Firebase</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">Clean Code</span>
+            <span class="skill-pill">Animations</span>
+            <span class="skill-pill">Notifications</span>
+            <span class="skill-pill">Payment Integration</span>
+            <span class="skill-pill">Localization</span>
+            <span class="skill-pill">Responsive Design</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">GitHub</span>
+            <span class="skill-pill">Problem Solving</span>
+          </div>
         </div>
+
+        <div class="about-card">
+          <h3>Soft Skills</h3>
+          <div class="skills-box">
+            <span class="skill-pill">Time Management</span>
+            <span class="skill-pill">Teamwork</span>
+            <span class="skill-pill">Critical Thinking</span>
+            <span class="skill-pill">Conflict Resolution</span>
+            <span class="skill-pill">Adaptability</span>
+            <span class="skill-pill">Flexibility</span>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Education</h3>
+          <div class="education-item">
+            <i class='bx bxs-graduation'></i>
+            <p>Bachelor's in Computer Science & Information – Tanta University</p>
+          </div>
+        </div>
+
+        <div class="about-card">
+          <h3>Languages</h3>
+          <div class="skills-box">
+            <span class="skill-pill">Arabic – Native (C2)</span>
+            <span class="skill-pill">English – Above Average (B2)</span>
+          </div>
+        </div>
+      </div>
     </div>
-</section>
+  </section>
 
-    <!-- Portfolio Section -->
-    <section class="portfolio" id="portfolio">
-        <h2 class="heading">TV Appearances</h2>
-        <div class="portfolio-container">
-            <div class="portfolio-box">
-                <a href="https://youtu.be/8DlDjT7D-dQ?si=xWMhFkYj7v7W0Z9N" target="_blank">
-                    <img src="assets/4.PNG" alt="Project">
-                </a>
-                <div class="portfolio-layer">
-                    <p>Guest on "At Tase'ah"</p>
-                    <a href="https://youtu.be/8DlDjT7D-dQ?si=xWMhFkYj7v7W0Z9N" target="_blank"><i class='bx bx-link-external'></i></a>
-                </div>
+  <!-- Projects Section -->
+  <section class="projects-section" id="projects">
+    <h2 class="section-title">My Mobile Applications</h2>
+
+    <!-- Farkito Projects -->
+    <div class="company-group">
+      <div class="company-header">Built at Farkito (Remote – France, Feb–May 2024)</div>
+      <div class="projects-grid">
+
+        <!-- Diyafa Staff -->
+        <div class="project-card">
+          <h3>Diyafa Staff</h3>
+          <p>Hotel service management for employees</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Diyafa Staff">
+              </iframe>
             </div>
+          </div>
+          <div class="play-store-link">
+            <a href="https://play.google.com/store/apps/details?id=com.farkito.Diyafa_staff&pli=1" class="btn" target="_blank">Play Store</a>
+            <span class="arrow">→</span>
+          </div>
         </div>
-    </section>
 
-    <!-- Services Section -->
-    <section class="services" id="services">
-        <h2 class="heading">Groups</h2>
-        <div class="services-container">
-            <div class="services-box">
-                <i class='bx bxl-telegram'></i>
-                <h3>Paradise Lost</h3>
-                <p class="poetic-description">
-                    We meet here to discuss books and listen to over 100 audio files.<br>
-                    A place where winners and creators share culture and inspiration.<br>
-                    Paradise Lost is not a place, but a meeting of conscious minds.<br>
-                </p>
-                <a href="https://t.me/+jita8kuRF4czM2Vk" target="_blank" class="btn">Join Now</a>
+        <!-- Diyafa Customer -->
+        <div class="project-card">
+          <h3>Diyafa Customer</h3>
+          <p>Hotel guest app with food orders and services</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Diyafa Customer">
+              </iframe>
             </div>
-            <div class="services-box">
-                <i class='bx bxl-telegram'></i>
-                <h3>I READ</h3>
-                <p class="poetic-description">
-                    Private sessions for carefully chosen book discussions.<br>
-                    Here we read, learn, and create a new life through reading.<br>
-                    "Read" is not just a word, it's the start of a journey toward creativity.<br>
-                </p>
-                <a href="https://t.me/+_H6rq-xXvNtmNjRk" target="_blank" class="btn">Join Now</a>
-            </div>
+          </div>
+          <div class="play-store-link">
+            <a href="https://play.google.com/store/apps/details?id=com.diyafa.customer" class="btn" target="_blank">Play Store</a>
+            <span class="arrow">→</span>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <h2 class="heading">Contact Me!</h2>
-        <p class="email-text">basantadeleissa@gmail.com</p>
-        <form action="#" id="contact-form">
-            <div class="input-box">
-                <input type="text" id="name" placeholder="Full Name" required>
-                <input type="email" id="email" placeholder="Email Address" required>
+    <!-- Splenify Projects -->
+    <div class="company-group">
+      <div class="company-header">Built at Splenify (Remote – Pakistan, Feb–May 2024)</div>
+      <div class="projects-grid">
+
+        <!-- Makers Media -->
+        <div class="project-card">
+          <h3>Makers Media</h3>
+          <p>Content aggregation app for creative professionals</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/g8iQpw-4qqk?autoplay=1&mute=1&loop=1&playlist=g8iQpw-4qqk"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Makers Media">
+              </iframe>
             </div>
-            <div class="input-box">
-                <input type="text" id="phone" inputmode="numeric" placeholder="Phone Number" required>
-                <input type="text" id="subject" placeholder="Email Subject" required>
+          </div>
+        </div>
+
+        <!-- Brickless -->
+        <div class="project-card">
+          <h3>Brickless</h3>
+          <p>Real estate listing platform with dynamic filters</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/qVzMUSqc_18?autoplay=1&mute=1&loop=1&playlist=qVzMUSqc_18"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Brickless">
+              </iframe>
             </div>
-            <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-            <input type="submit" id="submit-btn" value="Send Message" class="btn">
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-text">
-            <p>Copyright &copy; 2025 by BAE | All Rights Reserved</p>
+          </div>
         </div>
-        <div class="footer-iconTop">
-            <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+
+        <!-- Choose Your Champ -->
+        <div class="project-card">
+          <h3>Choose Your Champ</h3>
+          <p>Bodybuilding ranking app built with Flutter and Firebase</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/exNFEI11NWc?autoplay=1&mute=1&loop=1&playlist=exNFEI11NWc"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Choose Your Champ">
+              </iframe>
+            </div>
+          </div>
         </div>
-    </footer>
 
-    <!-- Scroll Reveal -->
-    <script src="https://unpkg.com/scrollreveal"></script>
-    <!-- Typed JS -->
-    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-    <!-- EmailJS -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <!-- Custom JS -->
-    <script src="script.js" defer></script>
+        <!-- Empathy -->
+        <div class="project-card">
+          <h3>Empathy</h3>
+          <p>Mental health and self-care tracking app</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/uctaOELTnFQ?autoplay=1&mute=1&loop=1&playlist=uctaOELTnFQ"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Empathy">
+              </iframe>
+            </div>
+          </div>
+        </div>
 
-    <!-- Typed.js Init -->
-    
-    <!-- EmailJS Init -->
-    <script>
-        (function () {
-            emailjs.init({
-                publicKey: "8eakICxPhUTan-vnt",
-            });
-        })();
-    </script>
+        <!-- InHome Styling -->
+        <div class="project-card">
+          <h3>InHome Styling</h3>
+          <p>Interior design showcase and booking app</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/CCFcrXqqm5Y?autoplay=1&mute=1&loop=1&playlist=CCFcrXqqm5Y"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="InHome Styling">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Truck App -->
+        <div class="project-card">
+          <h3>Truck App</h3>
+          <p>Logistics app for transport fleet management</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/xyTN763-WAw?autoplay=1&mute=1&loop=1&playlist=xyTN763-WAw"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Truck App">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact" id="contact">
+    <h2 class="heading">Contact Me!</h2>
+    <p class="email-text">basantadeleissa@gmail.com</p>
+    <form action="#" id="contact-form">
+      <div class="input-box">
+        <input type="text" id="name" placeholder="Full Name" required>
+        <input type="email" id="email" placeholder="Email Address" required>
+      </div>
+      <div class="input-box">
+        <input type="text" id="phone" inputmode="numeric" placeholder="Phone Number" required>
+        <input type="text" id="subject" placeholder="Email Subject" required>
+      </div>
+      <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
+      <input type="submit" id="submit-btn" value="Send Message" class="btn">
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-text">
+      <p>Copyright &copy; 2025 by BAE | All Rights Reserved</p>
+    </div>
+    <div class="footer-iconTop">
+      <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script src="script.js" defer></script>
+
+  <script>
+    (function () {
+      emailjs.init({
+        publicKey: "w59PalM8_wOuhXWcr",
+      });
+    })();
+  </script>
 </body>
-
 </html>
