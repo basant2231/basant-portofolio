@@ -53,14 +53,7 @@ ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 // Typed JS
-const typed = new Typed('.multiple-text', {
-    strings: ['Flutter Developer', 'Software Engineer', 'Mobile App Developer',],
 
-    typeSpeed: 100,
-    backSpeed: 100,
-    backDelay: 1000,
-    loop: true
-});
 
 // EmailJS Initialization
 emailjs.init("8eakICxPhUTan-vnt");
@@ -139,3 +132,116 @@ form.addEventListener('submit', (e) => {
         iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
       });
     });
+
+
+    document.addEventListener('DOMContentLoaded', function() {
+    // Typed.js initialization
+    const typed = new Typed('.multiple-text', {
+        strings: ['Flutter Developer', 'Mobile App Developer', 'Software Engineer'],
+        typeSpeed: 100,
+        backSpeed: 100,
+        backDelay: 1000,
+        loop: true
+    });
+
+    // Scroll Reveal initialization
+    ScrollReveal().reveal('.home-content, .home-img', {
+        origin: 'top',
+        distance: '50px',
+        duration: 1000,
+        delay: 200,
+        reset: true
+    });
+
+    // Intersection Observer for about and projects sections
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const aboutObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.about-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('show');
+                    }, index * 200);
+                });
+            }
+        });
+    }, observerOptions);
+
+    const projectsObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.company-group').forEach((group, index) => {
+                    setTimeout(() => {
+                        group.classList.add('show');
+                    }, index * 200);
+                });
+                
+                entry.target.querySelectorAll('.project-card').forEach((card, index) => {
+                    setTimeout(() => {
+                        card.classList.add('show');
+                    }, index * 100);
+                });
+            }
+        });
+    }, observerOptions);
+
+    // Observe the about and projects sections
+    const aboutSection = document.querySelector('.about');
+    const projectsSection = document.querySelector('.projects-section');
+    
+    if (aboutSection) {
+        aboutObserver.observe(aboutSection);
+    }
+    
+    if (projectsSection) {
+        projectsObserver.observe(projectsSection);
+    }
+
+    // Sticky header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        header.classList.toggle('sticky', window.scrollY > 100);
+    });
+
+    // Menu toggle
+    const menuIcon = document.getElementById('menu-icon');
+    const navbar = document.querySelector('.navbar');
+    
+    menuIcon.onclick = () => {
+        menuIcon.classList.toggle('bx-x');
+        navbar.classList.toggle('active');
+    };
+
+    // Close menu when clicking a link
+    document.querySelectorAll('.navbar a').forEach(link => {
+        link.addEventListener('click', () => {
+            menuIcon.classList.remove('bx-x');
+            navbar.classList.remove('active');
+        });
+    });
+
+    // EmailJS form submission
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submit-btn');
+            submitBtn.value = 'Sending...';
+            
+            emailjs.sendForm('service_your_service_id', 'template_your_template_id', this)
+                .then(() => {
+                    submitBtn.value = 'Send Message';
+                    alert('Message sent successfully!');
+                    contactForm.reset();
+                }, (error) => {
+                    submitBtn.value = 'Send Message';
+                    console.error('Failed to send message:', error);
+                    alert('Failed to send message. Please try again.');
+                });
+        });
+    }
+});
