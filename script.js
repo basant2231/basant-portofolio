@@ -52,90 +52,128 @@ ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact 
 ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
-// Typed JS
+// Initialize EmailJS with your Public Key
 
+// [Previous code remains the same until EmailJS initialization]
 
-// EmailJS Initialization
-emailjs.init("8eakICxPhUTan-vnt");
+// Initialize EmailJS with your Public Key
+emailjs.init("w59PalM8_wOuhXWcr"); // Make sure this is your correct public key
+
 // Get the form element
 const form = document.getElementById('contact-form');
 
 // Add an event listener to the form submission
-form.addEventListener('submit', (e) => {
-    e.preventDefault(); // Prevent default form submission
-    console.log('Form submission intercepted'); // Debugging
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    // Change button state during submission
+    const submitBtn = document.getElementById('submit-btn');
+    const originalBtnText = submitBtn.value;
+    submitBtn.value = 'Sending...';
+    submitBtn.disabled = true;
 
     // Get form data
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
-    const subject = document.getElementById('subject').value;
-    const message = document.getElementById('message').value;
+    const templateParams = {
+        from_name: document.getElementById('name').value.trim(),
+        from_email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        subject: document.getElementById('subject').value.trim(),
+        message: document.getElementById('message').value.trim(),
+    };
 
     // Validate form fields
-    if (!name || !email || !phone || !subject || !message) {
-        alert('يرجى ملء جميع الحقول');
+    if (!templateParams.from_name || !templateParams.from_email || 
+        !templateParams.phone || !templateParams.subject || !templateParams.message) {
+        alert('Please fill all fields');
+        submitBtn.value = originalBtnText;
+        submitBtn.disabled = false;
         return;
     }
 
     // Validate email format
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailPattern.test(email)) {
-        alert('الرجاء إدخال بريد إلكتروني صحيح.');
+    if (!emailPattern.test(templateParams.from_email)) {
+        alert('Please enter a valid email address.');
+        submitBtn.value = originalBtnText;
+        submitBtn.disabled = false;
         return;
     }
 
     // Validate phone number (must be at least 10 digits)
     const phonePattern = /^\d{10,}$/;
-    if (!phonePattern.test(phone)) {
-        alert('الرجاء إدخال رقم هاتف صحيح (10 أرقام على الأقل).');
+    if (!phonePattern.test(templateParams.phone)) {
+        alert('Please enter a valid phone number (at least 10 digits).');
+        submitBtn.value = originalBtnText;
+        submitBtn.disabled = false;
         return;
     }
 
-    // Set parameters for emailjs
-    const templateParams = {
-        from_name: name,
-        from_email: email,
-        phone: phone,
-        subject: subject,
-        message: message,
-    };
-
-    console.log('Sending email with data:', templateParams); // Debugging
-
-    // Send email using emailjs
-    emailjs.send("service_nj9sf0h","template_nkq8523", templateParams)
-        .then((response) => {
-            console.log('SUCCESS!', response.status, response.text); // Debugging
-            alert('تم إرسال الرسالة بنجاح!');
-            form.reset(); // Reset the form after successful submission
-        })
-        .catch((err) => {
-            console.log('FAILED...', err); // Debugging
-
-            // Extract the error message from the err object
-            let errorMessage = 'حدث خطأ أثناء إرسال الرسالة. الرجاء المحاولة مرة أخرى.';
-            if (err && err.text) {
-                errorMessage = err.text; // Use the error message from EmailJS
-            } else if (err && err.message) {
-                errorMessage = err.message; // Use the error message from the err object
-            }
-
-            alert(errorMessage); // Display the error message
-        });
-});
-
- document.addEventListener('DOMContentLoaded', function() {
-      // Make iframes focusable for accessibility
-      const iframes = document.querySelectorAll('iframe');
-      iframes.forEach(iframe => {
-        iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
-      });
+    console.log('Attempting to send with:', {
+        service: "service_nj9sf0h",
+        template: "template_nkq8523",
+        params: templateParams
     });
 
+    try {
+        // First verify EmailJS is properly initialized
+        if (!emailjs || typeof emailjs.send !== 'function') {
+            throw new Error('EmailJS not properly initialized');
+        }
 
-    document.addEventListener('DOMContentLoaded', function() {
-    // Typed.js initialization
+        // Add timeout for the email sending
+        const timeoutPromise = new Promise((_, reject) => {
+            setTimeout(() => {
+                reject(new Error('Request timed out (10 seconds)'));
+            }, 10000);
+        });
+
+        // Attempt to send email
+        const sendPromise = emailjs.send(
+            "service_nj9sf0h", 
+            "template_nkq8523", 
+            templateParams
+        );
+
+        const response = await Promise.race([sendPromise, timeoutPromise]);
+        
+        console.log('EmailJS Response:', response);
+        
+        if (response.status === 200) {
+            alert('Message sent successfully! Check your EmailJS dashboard to verify.');
+            form.reset();
+        } else {
+            throw new Error(`Unexpected status: ${response.status}`);
+        }
+    } catch (error) {
+        console.error('Email sending failed:', error);
+        
+        let errorMessage = 'Failed to send message. ';
+        
+        if (error.message.includes('timed out')) {
+            errorMessage += 'The request took too long.';
+        } else if (error.text) {
+            errorMessage += error.text;
+        } else if (error.message) {
+            errorMessage += error.message;
+        }
+        
+        alert(errorMessage);
+        
+        // Additional debug info
+        console.log('EmailJS SDK Status:', {
+            initialized: !!emailjs,
+            hasSendMethod: typeof emailjs.send === 'function',
+            userId: emailjs.userID
+        });
+    } finally {
+        submitBtn.value = originalBtnText;
+        submitBtn.disabled = false;
+    }
+});
+
+// [Rest of your existing code]
+// Typed.js initialization
+document.addEventListener('DOMContentLoaded', function() {
     const typed = new Typed('.multiple-text', {
         strings: ['Flutter Developer', 'Mobile App Developer', 'Software Engineer'],
         typeSpeed: 100,
@@ -144,13 +182,10 @@ form.addEventListener('submit', (e) => {
         loop: true
     });
 
-    // Scroll Reveal initialization
-    ScrollReveal().reveal('.home-content, .home-img', {
-        origin: 'top',
-        distance: '50px',
-        duration: 1000,
-        delay: 200,
-        reset: true
+    // Make iframes focusable for accessibility
+    const iframes = document.querySelectorAll('iframe');
+    iframes.forEach(iframe => {
+        iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
     });
 
     // Intersection Observer for about and projects sections
@@ -192,56 +227,39 @@ form.addEventListener('submit', (e) => {
     const aboutSection = document.querySelector('.about');
     const projectsSection = document.querySelector('.projects-section');
     
-    if (aboutSection) {
-        aboutObserver.observe(aboutSection);
-    }
-    
-    if (projectsSection) {
-        projectsObserver.observe(projectsSection);
-    }
-
-    // Sticky header
-    window.addEventListener('scroll', function() {
-        const header = document.querySelector('.header');
-        header.classList.toggle('sticky', window.scrollY > 100);
-    });
-
-    // Menu toggle
-    const menuIcon = document.getElementById('menu-icon');
-    const navbar = document.querySelector('.navbar');
-    
-    menuIcon.onclick = () => {
-        menuIcon.classList.toggle('bx-x');
-        navbar.classList.toggle('active');
-    };
-
-    // Close menu when clicking a link
-    document.querySelectorAll('.navbar a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuIcon.classList.remove('bx-x');
-            navbar.classList.remove('active');
-        });
-    });
-
-    // EmailJS form submission
-    const contactForm = document.getElementById('contact-form');
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const submitBtn = document.getElementById('submit-btn');
-            submitBtn.value = 'Sending...';
-            
-            emailjs.sendForm('service_your_service_id', 'template_your_template_id', this)
-                .then(() => {
-                    submitBtn.value = 'Send Message';
-                    alert('Message sent successfully!');
-                    contactForm.reset();
-                }, (error) => {
-                    submitBtn.value = 'Send Message';
-                    console.error('Failed to send message:', error);
-                    alert('Failed to send message. Please try again.');
-                });
-        });
-    }
+    if (aboutSection) aboutObserver.observe(aboutSection);
+    if (projectsSection) projectsObserver.observe(projectsSection);
 });
+/*
+I am using EmailJS with the following configuration:
+
+Service ID: service_nj9sf0h
+
+Template ID: template_nkq8523
+
+Public Key: w59PalM8_wOuhXWcr
+
+The form successfully submits, and I receive a 200 OK response from emailjs.send(...), but no email is delivered to my inbox. There are no console errors.
+
+Here’s what I need you to do:
+
+List all potential reasons why EmailJS might say "sent" but no email is received.
+
+Show how to test whether my EmailJS template is properly configured, especially:
+
+Are the templateParams matching the expected fields in the EmailJS template?
+
+Are the sender and receiver email addresses valid and allowed in EmailJS?
+
+Is the EmailJS template using the correct variable names like {{from_name}}, {{from_email}}, etc.?
+
+Suggest what to check in the EmailJS dashboard (Inbox, Spam, Activity Logs, etc.)
+
+Help me log all actual values going to EmailJS to ensure no empty or invalid values.
+
+Propose a simple test payload that I can use in emailjs.send(...) manually to verify if the issue is in the form data.
+
+Please give step-by-step guidance to ensure the message is actually sent and delivered correctly.
+
+
+*/
