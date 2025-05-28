@@ -600,3 +600,34 @@ section {
   opacity: 0;
   pointer-events: none;
 }
+
+@media (max-width: 768px) {
+  .home-img {
+    margin-top: -100px; /* Move the image closer upward */
+    display: flex;
+    justify-content: center;
+    transform: translateY(-80px); /* Slight visual lift */
+  }
+
+  .home-img img {
+    width: 80vw; /* Slightly reduce image size on mobile for balance */
+    max-width: 300px;
+  }
+
+  .home-content {
+    margin-bottom: -80px; /* Reduce gap between text and image */
+  }
+}
+
+.section-heading {
+  text-align: center;
+  font-size: 4rem;
+  color: var(--text-color); /* will be white from your root variable */
+  margin-bottom: 4rem;
+}
+
+/* Remove underline completely */
+.section-heading::after {
+  display: none;
+}
+

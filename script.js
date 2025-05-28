@@ -53,10 +53,6 @@ ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
 ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
 
 // Initialize EmailJS with your Public Key
-
-// [Previous code remains the same until EmailJS initialization]
-
-// Initialize EmailJS with your Public Key
 emailjs.init("w59PalM8_wOuhXWcr"); // Make sure this is your correct public key
 
 // Get the form element
@@ -171,7 +167,6 @@ form.addEventListener('submit', async (e) => {
     }
 });
 
-// [Rest of your existing code]
 // Typed.js initialization
 document.addEventListener('DOMContentLoaded', function() {
     const typed = new Typed('.multiple-text', {
@@ -233,83 +228,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 gsap.registerPlugin(ScrollTrigger);
 
-// About Cards
-gsap.utils.toArray('.about-card').forEach((card, i) => {
-  gsap.fromTo(card, 
-    { opacity: 0, x: 60 }, 
-    {
-      opacity: 1,
-      x: 0,
-      duration: 0.8,
-      delay: i * 0.2,
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        once: true
-      }
-    });
-});
+// Kill previous tweens to avoid duplication
+gsap.killTweensOf(".about-card");
+gsap.killTweensOf(".project-card");
 
-// Project Cards
-gsap.utils.toArray('.project-card').forEach((card, i) => {
-  gsap.fromTo(card, 
-    { opacity: 0, y: 60, scale: 0.95 }, 
-    {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.8,
-      delay: i * 0.15,
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        once: true
-      }
-    });
-});
-
-const aboutObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const cards = entry.target.querySelectorAll('.about-card');
-      cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.2}s`;
-        card.classList.add('show');
-      });
-      aboutObserver.unobserve(entry.target); // animate only once
-    }
-  });
-}, { threshold: 0.1 });
-
-const projectsObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const cards = entry.target.querySelectorAll('.project-card');
-      cards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.15}s`;
-        card.classList.add('show');
-      });
-      projectsObserver.unobserve(entry.target); // animate only once
-    }
-  });
-}, { threshold: 0.1 });
-
-ScrollTrigger.batch(".project-card", {
-  start: "top 85%",
-  once: true,
-  onEnter: batch => {
-    gsap.to(batch, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.8,
-      ease: "power3.out",
-      stagger: 0.15
-    });
-  }
-});
-
-// Animate .about-card elements with staggered slide-in from right
+// Animate .about-card elements faster with slide-in from right
 gsap.utils.toArray(".about-card").forEach((card, i) => {
   gsap.fromTo(
     card,
@@ -317,8 +240,8 @@ gsap.utils.toArray(".about-card").forEach((card, i) => {
     {
       opacity: 1,
       x: 0,
-      duration: 0.8,
-      delay: i * 0.2,
+      duration: 0.4,
+      delay: i * 0.1,
       ease: "power3.out",
       pointerEvents: "auto",
       scrollTrigger: {
@@ -330,7 +253,7 @@ gsap.utils.toArray(".about-card").forEach((card, i) => {
   );
 });
 
-// Animate .project-card elements with staggered scale-up from bottom
+// Animate .project-card elements faster with scale-up from bottom
 gsap.utils.toArray(".project-card").forEach((card, i) => {
   gsap.fromTo(
     card,
@@ -339,8 +262,8 @@ gsap.utils.toArray(".project-card").forEach((card, i) => {
       opacity: 1,
       y: 0,
       scale: 1,
-      duration: 0.8,
-      delay: i * 0.15,
+      duration: 0.4,
+      delay: i * 0.1,
       ease: "power3.out",
       pointerEvents: "auto",
       scrollTrigger: {
@@ -351,3 +274,20 @@ gsap.utils.toArray(".project-card").forEach((card, i) => {
     }
   );
 });
+
+// Optional: Batch version for project-card using faster animation
+ScrollTrigger.batch(".project-card", {
+  start: "top 85%",
+  once: true,
+  onEnter: batch => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.4,
+      ease: "power3.out",
+      stagger: 0.1
+    });
+  }
+});
+
