@@ -218,13 +218,13 @@ section {
   margin-bottom: 3rem;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.5s ease;
+  transform: translateX(60px);
+  transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .about-card.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .about-card h3 {
@@ -272,8 +272,8 @@ section {
 .company-group {
   margin-bottom: 6rem;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.5s ease;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .company-group.show {
@@ -308,13 +308,13 @@ section {
   flex-direction: column;
   align-items: center;
   opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.5s ease;
+  transform: translateY(60px) scale(0.95);
+  transition: all 0.8s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .project-card.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .project-card:hover {
@@ -506,6 +506,10 @@ section {
   color: var(--main-color);
 }
 
+.main-highlight {
+  color: var(--main-color);
+}
+
 /* Media Queries */
 @media (max-width: 1200px) {
   html { font-size: 55%; }
@@ -550,21 +554,49 @@ section {
   }
 }
 
-.section-heading {
-  text-align: center;
-  font-size: 4rem;
-  color: var(--text-color);
-  margin-bottom: 4rem;
-  position: relative;
+/* Animation improvements */
+@keyframes fadeSlideRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
-.section-heading::after {
-  display: none;
-}
-.email-text {
-  font-size: 2.4rem; /* increased from 2rem */
+@keyframes fadeScaleUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
-.main-highlight {
-  color: var(--main-color);
+/* Will-change for performance optimization */
+.about-card,
+.project-card {
+  will-change: transform, opacity;
+}
+
+/* Reduced motion media query */
+@media (prefers-reduced-motion: reduce) {
+  .about-card,
+  .project-card,
+  .company-group {
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
+.about-card,
+.project-card {
+  opacity: 0;
+  pointer-events: none;
 }

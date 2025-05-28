@@ -230,36 +230,124 @@ document.addEventListener('DOMContentLoaded', function() {
     if (aboutSection) aboutObserver.observe(aboutSection);
     if (projectsSection) projectsObserver.observe(projectsSection);
 });
-/*
-I am using EmailJS with the following configuration:
 
-Service ID: service_nj9sf0h
+gsap.registerPlugin(ScrollTrigger);
 
-Template ID: template_nkq8523
+// About Cards
+gsap.utils.toArray('.about-card').forEach((card, i) => {
+  gsap.fromTo(card, 
+    { opacity: 0, x: 60 }, 
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      delay: i * 0.2,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        once: true
+      }
+    });
+});
 
-Public Key: w59PalM8_wOuhXWcr
+// Project Cards
+gsap.utils.toArray('.project-card').forEach((card, i) => {
+  gsap.fromTo(card, 
+    { opacity: 0, y: 60, scale: 0.95 }, 
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      delay: i * 0.15,
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        once: true
+      }
+    });
+});
 
-The form successfully submits, and I receive a 200 OK response from emailjs.send(...), but no email is delivered to my inbox. There are no console errors.
+const aboutObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.about-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.classList.add('show');
+      });
+      aboutObserver.unobserve(entry.target); // animate only once
+    }
+  });
+}, { threshold: 0.1 });
 
-Here’s what I need you to do:
+const projectsObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const cards = entry.target.querySelectorAll('.project-card');
+      cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.15}s`;
+        card.classList.add('show');
+      });
+      projectsObserver.unobserve(entry.target); // animate only once
+    }
+  });
+}, { threshold: 0.1 });
 
-List all potential reasons why EmailJS might say "sent" but no email is received.
+ScrollTrigger.batch(".project-card", {
+  start: "top 85%",
+  once: true,
+  onEnter: batch => {
+    gsap.to(batch, {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      ease: "power3.out",
+      stagger: 0.15
+    });
+  }
+});
 
-Show how to test whether my EmailJS template is properly configured, especially:
+// Animate .about-card elements with staggered slide-in from right
+gsap.utils.toArray(".about-card").forEach((card, i) => {
+  gsap.fromTo(
+    card,
+    { opacity: 0, x: 60 },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.8,
+      delay: i * 0.2,
+      ease: "power3.out",
+      pointerEvents: "auto",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        once: true
+      }
+    }
+  );
+});
 
-Are the templateParams matching the expected fields in the EmailJS template?
-
-Are the sender and receiver email addresses valid and allowed in EmailJS?
-
-Is the EmailJS template using the correct variable names like {{from_name}}, {{from_email}}, etc.?
-
-Suggest what to check in the EmailJS dashboard (Inbox, Spam, Activity Logs, etc.)
-
-Help me log all actual values going to EmailJS to ensure no empty or invalid values.
-
-Propose a simple test payload that I can use in emailjs.send(...) manually to verify if the issue is in the form data.
-
-Please give step-by-step guidance to ensure the message is actually sent and delivered correctly.
-
-
-*/
+// Animate .project-card elements with staggered scale-up from bottom
+gsap.utils.toArray(".project-card").forEach((card, i) => {
+  gsap.fromTo(
+    card,
+    { opacity: 0, y: 60, scale: 0.95 },
+    {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      duration: 0.8,
+      delay: i * 0.15,
+      ease: "power3.out",
+      pointerEvents: "auto",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        once: true
+      }
+    }
+  );
+});
