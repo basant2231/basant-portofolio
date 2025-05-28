@@ -40,17 +40,38 @@ navLinks.forEach(link => {
     });
 });
 
-// Scroll reveal
-ScrollReveal({ 
-    distance: '80px',
-    duration: 2000,
-    delay: 200
-});
+// Remove ScrollReveal for immediate visibility (no animation) for About and Projects sections
+document.addEventListener('DOMContentLoaded', () => {
+    // Directly add the 'show' class to the about and project sections without animation
+    const aboutCards = document.querySelectorAll('.about-card');
+    const projectCards = document.querySelectorAll('.project-card');
+    const companyGroups = document.querySelectorAll('.company-group');
 
-ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
-ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+    aboutCards.forEach(card => {
+        card.classList.add('show');
+    });
+
+    projectCards.forEach(card => {
+        card.classList.add('show');
+    });
+
+    companyGroups.forEach(group => {
+        group.classList.add('show');
+    });
+
+    // Apply ScrollReveal to only Home and Contact sections
+    ScrollReveal({ 
+        distance: '80px',
+        duration: 2000,
+        delay: 200
+    });
+
+    // Animations for Home Section
+    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
+    ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
+    ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
+    ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+});
 
 // Initialize EmailJS with your Public Key
 emailjs.init("w59PalM8_wOuhXWcr"); // Make sure this is your correct public key
@@ -182,113 +203,4 @@ document.addEventListener('DOMContentLoaded', function() {
     iframes.forEach(iframe => {
         iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
     });
-
-    // Intersection Observer for about and projects sections
-    const observerOptions = {
-        threshold: 0.1
-    };
-
-    const aboutObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.querySelectorAll('.about-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('show');
-                    }, index * 200);
-                });
-            }
-        });
-    }, observerOptions);
-
-    const projectsObserver = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.querySelectorAll('.company-group').forEach((group, index) => {
-                    setTimeout(() => {
-                        group.classList.add('show');
-                    }, index * 200);
-                });
-                
-                entry.target.querySelectorAll('.project-card').forEach((card, index) => {
-                    setTimeout(() => {
-                        card.classList.add('show');
-                    }, index * 100);
-                });
-            }
-        });
-    }, observerOptions);
-
-    // Observe the about and projects sections
-    const aboutSection = document.querySelector('.about');
-    const projectsSection = document.querySelector('.projects-section');
-    
-    if (aboutSection) aboutObserver.observe(aboutSection);
-    if (projectsSection) projectsObserver.observe(projectsSection);
 });
-
-gsap.registerPlugin(ScrollTrigger);
-
-// Kill previous tweens to avoid duplication
-gsap.killTweensOf(".about-card");
-gsap.killTweensOf(".project-card");
-
-// Animate .about-card elements faster with slide-in from right
-gsap.utils.toArray(".about-card").forEach((card, i) => {
-  gsap.fromTo(
-    card,
-    { opacity: 0, x: 60 },
-    {
-      opacity: 1,
-      x: 0,
-      duration: 0.4,
-      delay: i * 0.1,
-      ease: "power3.out",
-      pointerEvents: "auto",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        once: true
-      }
-    }
-  );
-});
-
-// Animate .project-card elements faster with scale-up from bottom
-gsap.utils.toArray(".project-card").forEach((card, i) => {
-  gsap.fromTo(
-    card,
-    { opacity: 0, y: 60, scale: 0.95 },
-    {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.4,
-      delay: i * 0.1,
-      ease: "power3.out",
-      pointerEvents: "auto",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        once: true
-      }
-    }
-  );
-});
-
-// Optional: Batch version for project-card using faster animation
-ScrollTrigger.batch(".project-card", {
-  start: "top 85%",
-  once: true,
-  onEnter: batch => {
-    gsap.to(batch, {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      duration: 0.4,
-      ease: "power3.out",
-      stagger: 0.1
-    });
-  }
-});
-
-/******************* */
