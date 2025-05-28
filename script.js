@@ -291,3 +291,4 @@ ScrollTrigger.batch(".project-card", {
   }
 });
 
+/******************* */
