@@ -204,3 +204,28 @@ document.addEventListener('DOMContentLoaded', function() {
         iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
     });
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Initialize IntersectionObserver for animations
+    const animateOnScroll = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate-in');
+                animateOnScroll.unobserve(entry.target);  // Stop observing after animation
+            }
+        });
+    }, {
+        threshold: 0.5, // Trigger when 50% of the element is visible
+        rootMargin: '0px 0px -50px 0px'  // Adjust trigger point to start slightly before the element hits the viewport
+    });
+
+    // Observe the .about-card, .company-group, and .project-card elements
+    document.querySelectorAll('.about-card, .company-group, .project-card').forEach(el => {
+        animateOnScroll.observe(el);
+    });
+
+    // Make iframes accessible (for good accessibility practice)
+    document.querySelectorAll('iframe').forEach(iframe => {
+        iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
+    });
+});

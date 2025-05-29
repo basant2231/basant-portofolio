@@ -631,3 +631,14 @@ section {
   display: none;
 }
 
+/* Animations for about-card, company-group, and project-card */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
