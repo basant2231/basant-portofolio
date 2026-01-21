@@ -297,6 +297,12 @@ section {
   gap: 3rem;
 }
 
+/* Invisible spacer to center last item */
+.project-card-spacer {
+  min-width: 320px;
+  visibility: hidden;
+}
+
 .project-card {
   background: var(--second-bg-color);
   padding: 3rem 2rem;
@@ -377,6 +383,11 @@ section {
   border: none;
   transform: scale(1.05);
   transform-origin: center center;
+}
+
+/* Special scale for 24Doc video */
+.video-container.scale-large iframe {
+  transform: scale(1.2);
 }
 
 /* Side-by-side project layout with button on the right */
