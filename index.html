@@ -12,6 +12,9 @@
 </head>
 <body>
 
+  <!-- Cursor Glow -->
+  <div class="cursor-glow" id="cursor-glow"></div>
+
   <!-- Header -->
   <header class="header">
     <a href="#" class="logo">Basant <span class="highlight">Eissa</span></a>
@@ -26,6 +29,7 @@
 
   <!-- Home -->
   <section class="home" id="home">
+    <canvas id="particles-canvas"></canvas>
     <div class="home-content">
     <h3><span class="main-highlight">Welcome,</span> my name is</h3>
       <h1>Basant Adel Eissa</h1>
@@ -47,7 +51,9 @@
       </div>
     </div>
     <div class="home-img">
-      <img src="assets/basant.png" alt="Profile Image" />
+      <div class="img-ring">
+        <img src="assets/basant.png" alt="Profile Image" />
+      </div>
     </div>
   </section>
 
@@ -116,49 +122,7 @@
   <section class="projects-section" id="projects">
     <h2 class="section-heading">My Mobile Applications</h2>
 
-    <!-- Farkito Projects -->
-    <div class="company-group">
-    <div class="company-header">Built at Farkito (02/2024 – 05/2024)</div>
-
-      <div class="projects-grid">
-
-        <!-- Diyafa Staff -->
-        <div class="project-card">
-          <h3>Diyafa Staff</h3>
-          <p>Hotel service management for employees</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe 
-                src="https://www.youtube.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Diyafa Staff">
-              </iframe>
-            </div>
-          </div>
-        </div>
-
-        <!-- Diyafa Customer -->
-        <div class="project-card">
-          <h3>Diyafa Customer</h3>
-          <p>Hotel guest app with food orders and services</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe 
-                src="https://www.youtube.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Diyafa Customer">
-              </iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <!-- Splenify Projects -->
-    <div style="height: 50px;"></div> <!-- creates 50px vertical space -->
-
     <div class="company-group">
      <div class="company-header">Built at Splenify (07/2024 – Present)</div>
 
@@ -279,6 +243,48 @@
         </div>
 
 
+      </div>
+    </div>
+
+    <div style="height: 50px;"></div> <!-- creates 50px vertical space -->
+
+    <!-- Farkito Projects -->
+    <div class="company-group">
+    <div class="company-header">Built at Farkito (02/2024 – 05/2024)</div>
+
+      <div class="projects-grid">
+
+        <!-- Diyafa Staff -->
+        <div class="project-card">
+          <h3>Diyafa Staff</h3>
+          <p>Hotel service management for employees</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Diyafa Staff">
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diyafa Customer -->
+        <div class="project-card">
+          <h3>Diyafa Customer</h3>
+          <p>Hotel guest app with food orders and services</p>
+          <div class="phone-emulator">
+            <div class="video-container">
+              <iframe 
+                src="https://www.youtube.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                title="Diyafa Customer">
+              </iframe>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>

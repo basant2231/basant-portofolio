@@ -1,3 +1,88 @@
+// ─── Cursor Glow ───
+const cursorGlow = document.getElementById('cursor-glow');
+if (cursorGlow && window.innerWidth > 768) {
+  document.addEventListener('mousemove', (e) => {
+    cursorGlow.style.left = e.clientX + 'px';
+    cursorGlow.style.top = e.clientY + 'px';
+    cursorGlow.classList.add('active');
+  });
+  document.addEventListener('mouseleave', () => {
+    cursorGlow.classList.remove('active');
+  });
+}
+
+// ─── Particle Canvas ───
+document.addEventListener('DOMContentLoaded', function initParticles() {
+  const canvas = document.getElementById('particles-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  let particles = [];
+  const PARTICLE_COUNT = 55;
+  const CONNECTION_DIST = 110;
+
+  function resize() {
+    const section = canvas.parentElement;
+    canvas.width = section.offsetWidth;
+    canvas.height = section.offsetHeight;
+    // Repopulate on resize so particles stay in bounds
+    createParticles();
+  }
+
+  function createParticles() {
+    particles = [];
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+      particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.45,
+        vy: (Math.random() - 0.5) * 0.45,
+        r: Math.random() * 1.8 + 0.8,
+      });
+    }
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Connections
+    for (let i = 0; i < particles.length; i++) {
+      for (let j = i + 1; j < particles.length; j++) {
+        const dx = particles[i].x - particles[j].x;
+        const dy = particles[i].y - particles[j].y;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < CONNECTION_DIST) {
+          ctx.strokeStyle = `rgba(73, 209, 171, ${0.18 * (1 - dist / CONNECTION_DIST)})`;
+          ctx.lineWidth = 0.6;
+          ctx.beginPath();
+          ctx.moveTo(particles[i].x, particles[i].y);
+          ctx.lineTo(particles[j].x, particles[j].y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    // Particles
+    particles.forEach((p) => {
+      ctx.fillStyle = 'rgba(73, 209, 171, 0.55)';
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fill();
+
+      p.x += p.vx;
+      p.y += p.vy;
+
+      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+});
+
 // Toggle icon navbar
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');

@@ -3,6 +3,8 @@
   --second-bg-color: #04014F;
   --text-color: #fff;
   --main-color: #00C8FF;
+  --grad-start: #1F6BB3;
+  --grad-end: #49D1AB;
   --phone-color: #111;
   --phone-border: #2b2b2b;
   --phone-shadow: rgba(0, 200, 255, 0.2);
@@ -28,6 +30,24 @@ body {
   background: var(--bg-color);
   color: var(--text-color);
   direction: ltr;
+}
+
+/* Cursor Glow */
+.cursor-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 200, 255, 0.08), transparent 60%);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.cursor-glow.active {
+  opacity: 1;
 }
 
 /* Section */
@@ -84,14 +104,68 @@ section {
   justify-content: space-between;
   align-items: center;
   gap: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+#particles-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.home-content {
+  position: relative;
+  z-index: 1;
+}
+
+.home-img {
+  position: relative;
+  z-index: 1;
+}
+
+/* Home image wrapper */
+.home-img {
+  position: relative;
+  z-index: 1;
 }
 
 .home-img img {
   width: 30vw;
-  border: 0.5rem solid var(--main-color);
   border-radius: 50%;
-  box-shadow: 0 0 2rem var(--main-color);
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+/* Gradient ring wrapper */
+.img-ring {
+  display: inline-block;
+  border-radius: 50%;
+  padding: 0.5rem;
+  background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+  box-shadow: 0 0 3rem rgba(31, 107, 179, 0.55),
+              0 0 6rem rgba(73, 209, 171, 0.25);
   animation: floatImage 4s ease-in-out infinite;
+  cursor: pointer;
+  transition: box-shadow 0.4s ease;
+}
+
+.img-ring:hover {
+  box-shadow: 0 0 4rem rgba(31, 107, 179, 0.75),
+              0 0 9rem rgba(73, 209, 171, 0.4);
+}
+
+.img-ring img {
+  display: block;
+  width: 30vw;
+  border-radius: 50%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
 }
 
 @keyframes floatImage {
@@ -141,10 +215,10 @@ section {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 4rem;
-  height: 4rem;
-  background: transparent;
-  border: .2rem solid var(--main-color);
+  width: 4.4rem;
+  height: 4.4rem;
+  background: rgba(31, 107, 179, 0.15);
+  border: .2rem solid var(--grad-start);
   border-radius: 50%;
   font-size: 2rem;
   color: var(--main-color);
@@ -161,11 +235,12 @@ section {
 .btn {
   display: inline-block;
   padding: 1rem 2.8rem;
-  background: var(--main-color);
+  background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
   border-radius: 4rem;
-  box-shadow: 0 0 1rem var(--main-color);
+  box-shadow: 0 0 1.5rem rgba(31, 107, 179, 0.6),
+              0 0 3rem rgba(73, 209, 171, 0.2);
   font-size: 1.6rem;
-  color: var(--second-bg-color);
+  color: #fff;
   letter-spacing: .1rem;
   font-weight: 600;
   transition: .5s ease;
@@ -546,14 +621,96 @@ section {
   }
   .navbar.active { display: block; }
   .navbar a { display: block; font-size: 2rem; margin: 3rem 0; }
-  .home { flex-direction: column; gap: 2rem; }
-  .home-content h3 { font-size: 2.6rem; }
-  .home-content h1 { font-size: 5rem; }
-  .home-img img { width: 70vw; }
-  .contact form .input-box input { width: 100%; }
-  .project-card.with-button {
+
+  /* ── Mobile home: kill the top void ── */
+  .home {
     flex-direction: column;
+    gap: 4rem;
+    padding-top: 15rem;
+    padding-bottom: 5rem;
+    padding-left: 5%;
+    padding-right: 5%;
+    text-align: center;
+    min-height: 100vh;
+    justify-content: flex-start;
+    align-items: center;
   }
+
+  .home-content {
+    order: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  /* Welcome, my name is */
+  .home-content h3:first-of-type {
+    font-size: 2.2rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 0.4rem;
+  }
+
+  /* Basant Adel Eissa */
+  .home-content h1 {
+    font-size: 5rem;
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.6rem;
+  }
+
+  /* And I am a <typed> */
+  .home-content h3:nth-of-type(2) {
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin-bottom: 1.2rem;
+  }
+
+  /* Description paragraph */
+  .home-content p {
+    max-width: 96%;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  .larger-text {
+    font-size: 2.2rem;
+    color: rgba(255,255,255,0.85);
+  }
+
+  .social-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.6rem;
+    margin-top: 2rem;
+  }
+
+  .social-media {
+    justify-content: center;
+  }
+
+  /* Profile image below content */
+  .home-img {
+    order: 2;
+    display: flex;
+    justify-content: center;
+  }
+
+  .img-ring {
+    /* Larger screen width with gradient border */
+    width: 65vw;
+    max-width: 250px;
+  }
+
+  .img-ring img {
+    width: 100%;
+  }
+
+  .contact form .input-box input { width: 100%; }
+  .project-card.with-button { flex-direction: column; }
 }
 
 @media (max-width: 450px) {
@@ -612,21 +769,43 @@ section {
   pointer-events: none;
 }
 
-@media (max-width: 768px) {
-  .home-img {
-    margin-top: -100px; /* Move the image closer upward */
-    display: flex;
-    justify-content: center;
-    transform: translateY(-80px); /* Slight visual lift */
+@media (max-width: 480px) {
+  /* Phones ≤480px — tighten further */
+  .home {
+    padding-top: 15rem;
+    gap: 4.5rem;
   }
 
-  .home-img img {
-    width: 80vw; /* Slightly reduce image size on mobile for balance */
-    max-width: 300px;
+  .home-content h3:first-of-type {
+    font-size: 2.2rem;
   }
 
-  .home-content {
-    margin-bottom: -80px; /* Reduce gap between text and image */
+  .home-content h1 {
+    font-size: 5rem;
+  }
+
+  .home-content h3:nth-of-type(2) {
+    font-size: 2.6rem;
+  }
+
+  .larger-text {
+    font-size: 2rem;
+  }
+
+  .img-ring {
+    width: 70vw;
+    max-width: 260px;
+  }
+
+  .social-media a {
+    width: 5rem;
+    height: 5rem;
+    font-size: 2.2rem;
+  }
+
+  .btn {
+    padding: 1.2rem 3rem;
+    font-size: 1.8rem;
   }
 }
 
