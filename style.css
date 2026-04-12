@@ -300,6 +300,7 @@ section {
 .about-card.show {
   opacity: 1;
   transform: translateX(0);
+  pointer-events: auto;
 }
 
 .about-card h3 {
@@ -354,6 +355,7 @@ section {
 .company-group.show {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
 }
 
 .company-header {
@@ -396,6 +398,7 @@ section {
 .project-card.show {
   opacity: 1;
   transform: translateY(0) scale(1);
+  pointer-events: auto;
 }
 
 .project-card:hover {
@@ -711,6 +714,15 @@ section {
 
   .contact form .input-box input { width: 100%; }
   .project-card.with-button { flex-direction: column; }
+  
+  /* Force 24Doc to top on mobile */
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-24doc { 
+    order: -1; 
+  }
 }
 
 @media (max-width: 450px) {
