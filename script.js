@@ -282,34 +282,27 @@ document.addEventListener('DOMContentLoaded', function() {
         backDelay: 1000,
         loop: true
     });
-
-    // Make iframes focusable for accessibility
-    const iframes = document.querySelectorAll('iframe');
-    iframes.forEach(iframe => {
-        iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
-    });
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-    // Initialize IntersectionObserver for animations
+    // ─── Scroll animations ───
     const animateOnScroll = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('animate-in');
-                animateOnScroll.unobserve(entry.target);  // Stop observing after animation
+                animateOnScroll.unobserve(entry.target);
             }
         });
     }, {
-        threshold: 0.5, // Trigger when 50% of the element is visible
-        rootMargin: '0px 0px -50px 0px'  // Adjust trigger point to start slightly before the element hits the viewport
+        threshold: 0.5,
+        rootMargin: '0px 0px -50px 0px'
     });
 
-    // Observe the .about-card, .company-group, and .project-card elements
     document.querySelectorAll('.about-card, .company-group, .project-card').forEach(el => {
         animateOnScroll.observe(el);
     });
 
-    // Make iframes accessible (for good accessibility practice)
+    // Iframe accessibility
     document.querySelectorAll('iframe').forEach(iframe => {
         iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
     });
