@@ -418,13 +418,66 @@ section {
   color: rgba(255, 255, 255, 0.8);
 }
 
+/* Project Link Badge */
+.project-link-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2.4rem;
+  margin-top: 0.2rem;
+  margin-bottom: 0.8rem;
+  background: linear-gradient(135deg, var(--grad-start), var(--grad-end));
+  border: none;
+  border-radius: 4rem;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(31, 107, 179, 0.4),
+              0 0 25px rgba(73, 209, 171, 0.15);
+}
+
+.project-link-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.2) 50%, transparent 100%);
+  transition: left 0.5s ease;
+}
+
+.project-link-badge:hover::before {
+  left: 100%;
+}
+
+.project-link-badge:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 6px 25px rgba(31, 107, 179, 0.55),
+              0 0 40px rgba(73, 209, 171, 0.25);
+}
+
+.project-link-badge:active {
+  transform: translateY(-1px) scale(1.01);
+}
+
+.project-link-badge i {
+  font-size: 1.8rem;
+  color: #fff;
+}
+
 /* Phone Emulator */
 .phone-emulator {
   position: relative;
   width: 100%;
   max-width: 240px;
   aspect-ratio: 9/16;
-  margin: 0 auto 2rem;
+  margin: auto auto 2rem;
   background: #000;
   border: 12px solid #2b2b2b;
   border-radius: 3rem;
