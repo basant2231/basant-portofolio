@@ -3,385 +3,831 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Basant Adel Eissa – Flutter Developer</title>
-  <link rel="preconnect" href="https://www.youtube.com">
-  <link rel="preconnect" href="https://www.google.com">
+  <title>Basant Adel Eissa — Senior Flutter Developer & Mobile Architect</title>
+  <meta name="description" content="Senior Flutter Developer with 2+ years of international remote experience delivering production-grade iOS & Android apps. Specialist in 60 FPS performance, BLoC architecture, and real-time cloud integrations." />
+  
+  <!-- Preconnect Resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://www.youtube-nocookie.com">
   <link rel="preconnect" href="https://i.ytimg.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Curated Font Pairing: Instrument Serif (Editorial) + Plus Jakarta Sans + JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Boxicons -->
   <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  
+  <!-- Stylesheet -->
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
 </head>
 <body>
 
-  <!-- Cursor Glow -->
-  <div class="cursor-glow" id="cursor-glow"></div>
+  <!-- Ambient Glow Atmosphere -->
+  <div class="ambient-glow glow-warm"></div>
+  <div class="ambient-glow glow-violet"></div>
+  <div class="ambient-glow glow-bottom"></div>
+  <div class="grain-overlay"></div>
 
-  <!-- Header -->
+  <!-- Editorial Sticky Header -->
   <header class="header">
-    <a href="#" class="logo">Basant <span class="highlight">Eissa</span></a>
+    <a href="#home" class="logo-wrap">
+      <span class="logo-badge"><i class='bx bxl-flutter'></i></span>
+      <span class="logo-name">Basant <span>Eissa</span></span>
+    </a>
     <i class='bx bx-menu' id="menu-icon"></i>
     <nav class="navbar">
       <a href="#home" class="active">Home</a>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
+      <a href="#about">Experience & Stack</a>
+      <a href="#projects">Work</a>
+      <a href="#contact" class="nav-cta-btn"><i class='bx bx-paper-plane'></i> Let's Talk</a>
     </nav>
   </header>
 
-  <!-- Home -->
+  <!-- Hero Section -->
   <section class="home" id="home">
-    <canvas id="particles-canvas"></canvas>
     <div class="home-content">
-    <h3><span class="main-highlight">Welcome,</span> my name is</h3>
-      <h1>Basant Adel Eissa</h1>
-     <h3>And I am a <span class="main-highlight multiple-text"></span></h3>
-      <p class="poetic-description">
-        <span class="larger-text">
-   A Flutter developer with 2 years of experience collaborating with international remote teams to deliver production ready mobile applications. 
-        </span>
+      <!-- Human Status Indicator -->
+      <div class="status-pill">
+        <span class="status-dot"></span>
+        <span class="status-text">Available for remote roles & high-impact contracts</span>
+      </div>
+
+      <div class="home-intro">Hey, I'm Basant 👋</div>
+      <h1 class="home-name">Basant Adel Eissa</h1>
+      
+      <div class="home-statement">
+        Engineering <span class="serif-italic">high-performance</span>, production-grade Flutter apps.
+      </div>
+
+      <p class="home-bio">
+        Mobile Engineer with <strong>2+ years of international remote experience</strong> delivering production-ready iOS & Android apps. Obsessed with 60 FPS frame rates, clean BLoC architecture, and interfaces that feel effortless to touch.
       </p>
-      <div class="social-actions">
- 
 
-    <a href="assets/Basant Adel Eissa.pdf" class="btn download-cv" download target="_blank">Open CV</a>
-        <div class="social-media">
-          <a href="https://web.facebook.com/basant.adel.39501" target="_blank"><i class='bx bxl-facebook'></i></a>
-          <a href="https://www.linkedin.com/in/basant-eissa-bb29791b3/" target="_blank"><i class='bx bxl-linkedin'></i></a>
-          <a href="#contact"><i class='bx bx-envelope'></i></a>
+      <!-- Quality Metrics Strip -->
+      <div class="quality-badges">
+        <div class="badge-item">
+          <span class="badge-num">11<span>+</span></span>
+          <span class="badge-desc">Shipped Apps</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-num">12k<span>+</span></span>
+          <span class="badge-desc">Happy Users</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-num">60<span>fps</span></span>
+          <span class="badge-desc">Zero-Jank Target</span>
+        </div>
+        <div class="badge-item">
+          <span class="badge-num">2<span>+</span></span>
+          <span class="badge-desc">Yrs Remote Exp.</span>
+        </div>
+      </div>
+
+      <!-- Action CTAs -->
+      <div class="hero-cta-group">
+        <a href="#projects" class="btn-lime">
+          <span>Explore Selected Work</span>
+          <i class='bx bx-down-arrow-alt'></i>
+        </a>
+        <a href="assets/basant adel eissa resume.pdf" class="btn-glass" download target="_blank">
+          <i class='bx bx-download'></i>
+          <span>Resume (PDF)</span>
+        </a>
+        <div class="social-pills">
+          <a href="https://www.linkedin.com/in/basant-eissa-bb29791b3/" target="_blank" class="social-pill-btn" title="LinkedIn Profile">
+            <i class='bx bxl-linkedin'></i>
+          </a>
+          <a href="https://web.facebook.com/basant.adel.39501" target="_blank" class="social-pill-btn" title="Facebook Profile">
+            <i class='bx bxl-facebook'></i>
+          </a>
+          <a href="#contact" class="social-pill-btn" title="Send Email">
+            <i class='bx bx-envelope'></i>
+          </a>
         </div>
       </div>
     </div>
-    <div class="home-img">
-      <div class="img-ring">
-        <img src="assets/basant.webp" alt="Profile Image" />
+
+    <!-- Hero Visual -->
+    <div class="home-visual">
+      <div class="editorial-card-container">
+        <div class="portrait-editorial-frame">
+          <div class="portrait-inner">
+            <img src="assets/basant.webp" alt="Basant Adel Eissa — Senior Flutter Developer" />
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- About -->
+  <!-- Experience & Technical Foundations -->
   <section class="about" id="about">
-    <div class="about-container">
-      <div class="about-full">
-        <h2 class="section-heading">Get to Know Me!</h2>
+    <div class="section-head">
+      <div class="editorial-tag">Core Technical Toolkit</div>
+      <h2 class="section-title">Experience & <span class="serif-italic">Stack</span></h2>
+      <p class="section-subtitle">
+        A grounded software engineering foundation backed by computer science fundamentals and 2 years of daily international remote teamwork.
+      </p>
+    </div>
 
-        <div class="about-card">
-          <h3>Hard Skills</h3>
-          <div class="skills-box">
-            <span class="skill-pill">Dart</span>
-            <span class="skill-pill">Flutter</span>
-            <span class="skill-pill">OOP</span>
-            <span class="skill-pill">SOLID</span>
-            <span class="skill-pill">BLoC</span>
-            <span class="skill-pill">Provider</span>
-            <span class="skill-pill">GetX</span>
-            <span class="skill-pill">Firebase</span>
-            <span class="skill-pill">REST APIs</span>
-            <span class="skill-pill">Clean Code</span>
-            <span class="skill-pill">Animations</span>
-            <span class="skill-pill">Notifications</span>
-            <span class="skill-pill">Payment Integration</span>
-            <span class="skill-pill">Localization</span>
-            <span class="skill-pill">Responsive Design</span>
-            <span class="skill-pill">Git</span>
-            <span class="skill-pill">GitHub</span>
-            <span class="skill-pill">Problem Solving</span>
+    <div class="bento-grid">
+      <!-- Bento 1: Core Frameworks -->
+      <div class="bento-box span-8">
+        <div class="bento-head-row">
+          <div class="bento-icon lime"><i class='bx bxl-flutter'></i></div>
+          <div>
+            <div class="bento-sublabel">Core Expertise</div>
+            <h3 class="bento-h3">Frameworks, Dart & State Management</h3>
           </div>
         </div>
-
-        <div class="about-card">
-          <h3>Soft Skills</h3>
-          <div class="skills-box">
-            <span class="skill-pill">Time Management</span>
-            <span class="skill-pill">Teamwork</span>
-            <span class="skill-pill">Critical Thinking</span>
-            <span class="skill-pill">Conflict Resolution</span>
-            <span class="skill-pill">Adaptability</span>
-            <span class="skill-pill">Flexibility</span>
+        <div class="skill-cluster">
+          <div>
+            <div class="cluster-title">Languages & Fundamentals</div>
+            <div class="chips-wrap">
+              <span class="pill-chip star"><i class='bx bxl-flutter'></i> Flutter 3.x</span>
+              <span class="pill-chip star"><i class='bx bx-code-alt'></i> Dart</span>
+              <span class="pill-chip">OOP Design</span>
+              <span class="pill-chip">SOLID Principles</span>
+              <span class="pill-chip">Clean Code</span>
+              <span class="pill-chip">Git / GitHub Workflow</span>
+            </div>
+          </div>
+          <div>
+            <div class="cluster-title">State Orchestration & Architecture</div>
+            <div class="chips-wrap">
+              <span class="pill-chip star"><i class='bx bx-network-chart'></i> BLoC / Cubit</span>
+              <span class="pill-chip">Clean Architecture</span>
+              <span class="pill-chip">Repository Pattern</span>
+              <span class="pill-chip">Provider</span>
+              <span class="pill-chip">GetX</span>
+              <span class="pill-chip">Atomic State Dispatch</span>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div class="about-card">
-          <h3>Education</h3>
-          <div class="education-item">
-            <i class='bx bxs-graduation'></i>
-            <p>Bachelor's in Computer Science & Information – Tanta University</p>
+      <!-- Bento 2: Cloud & Integrations -->
+      <div class="bento-box span-4">
+        <div class="bento-head-row">
+          <div class="bento-icon lilac"><i class='bx bx-cloud'></i></div>
+          <div>
+            <div class="bento-sublabel">Cloud & Integrations</div>
+            <h3 class="bento-h3">APIs, Payments & DB</h3>
           </div>
         </div>
+        <div class="chips-wrap">
+          <span class="pill-chip star"><i class='bx bx-data'></i> RESTful APIs</span>
+          <span class="pill-chip star"><i class='bx bxl-firebase'></i> Firebase Suite</span>
+          <span class="pill-chip star"><i class='bx bx-credit-card'></i> Stripe Payments</span>
+          <span class="pill-chip">Authorization Holds</span>
+          <span class="pill-chip">Cloud Functions</span>
+          <span class="pill-chip">WebSockets</span>
+          <span class="pill-chip">Push Notifications</span>
+          <span class="pill-chip">Google Maps SDK</span>
+        </div>
+      </div>
 
-        <div class="about-card">
-          <h3>Languages</h3>
-          <div class="skills-box">
-            <span class="skill-pill">Arabic – Native (C2)</span>
-            <span class="skill-pill">English – Above Average (B2)</span>
+      <!-- Bento 3: Education & Track Record -->
+      <div class="bento-box span-6">
+        <div class="bento-head-row">
+          <div class="bento-icon emerald"><i class='bx bxs-graduation'></i></div>
+          <div>
+            <div class="bento-sublabel">Education & Experience</div>
+            <h3 class="bento-h3">Academic Degree & Remote Record</h3>
+          </div>
+        </div>
+        <div class="edu-stack">
+          <div class="edu-card">
+            <div class="edu-glyph"><i class='bx bxs-graduation'></i></div>
+            <div>
+              <div class="edu-degree">Bachelor's in Computer Science & Information</div>
+              <div class="edu-uni">Tanta University</div>
+              <div class="edu-detail">Comprehensive study of algorithms, data structures, and software engineering.</div>
+            </div>
+          </div>
+          <div class="edu-card">
+            <div class="edu-glyph"><i class='bx bx-world'></i></div>
+            <div>
+              <div class="edu-degree">2+ Years International Remote Work</div>
+              <div class="edu-uni">Splenify & Farkito</div>
+              <div class="edu-detail">Daily asynchronous communication, cross-timezone sprint delivery across US and MENA.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bento 4: Languages & Global Collaboration -->
+      <div class="bento-box span-6">
+        <div class="bento-head-row">
+          <div class="bento-icon lime"><i class='bx bx-conversation'></i></div>
+          <div>
+            <div class="bento-sublabel">Communication</div>
+            <h3 class="bento-h3">Global Collaboration & Languages</h3>
+          </div>
+        </div>
+        <div class="skill-cluster">
+          <div>
+            <div class="cluster-title">Languages</div>
+            <div class="chips-wrap">
+              <span class="pill-chip star"><i class='bx bx-check'></i> Arabic — Native (C2)</span>
+              <span class="pill-chip star"><i class='bx bx-check'></i> English — Professional Working (B2)</span>
+            </div>
+          </div>
+          <div>
+            <div class="cluster-title">Soft Skills & Remote Culture</div>
+            <div class="chips-wrap">
+              <span class="pill-chip">Clear Asynchronous Comms</span>
+              <span class="pill-chip">Proactive Problem Solver</span>
+              <span class="pill-chip">Conflict Resolution</span>
+              <span class="pill-chip">Time-Zone Adaptability</span>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <!-- Selected Work (Mobbin Mobile Gallery) -->
   <section class="projects-section" id="projects">
-    <h2 class="section-heading">My Mobile Applications</h2>
+    <div class="section-head">
+      <div class="editorial-tag">Curated Case Studies</div>
+      <h2 class="section-title">Selected <span class="serif-italic">Work</span></h2>
+      <p class="section-subtitle">
+        A gallery of production applications engineered with deliberate attention to state architecture, network resilience, and tactile responsiveness.
+      </p>
+    </div>
 
-    <!-- Splenify Projects -->
-    <div class="company-group">
-     <div class="company-header">Built at Splenify (07/2024 – Present)</div>
+    <!-- Category Filter Tray -->
+    <div class="filter-tray">
+      <button class="pill-tab active" data-filter="all">All Work <span class="count">11</span></button>
+      <button class="pill-tab" data-filter="flagship">🏆 Flagship <span class="count">3</span></button>
+      <button class="pill-tab" data-filter="logistics">🚗 On-Demand <span class="count">2</span></button>
+      <button class="pill-tab" data-filter="realestate">🏠 Real Estate <span class="count">2</span></button>
+      <button class="pill-tab" data-filter="hospitality">🌿 Lifestyle <span class="count">6</span></button>
+    </div>
 
-      <div class="projects-grid">
-        <!-- 24Doc -->
-        <div class="project-card card-24doc">
-          <h3>24Doc Telehealth</h3>
-          <a href="https://www.24hrdoc.com/" target="_blank" class="project-link-badge">
-            <i class='bx bx-globe'></i> 24hrdoc.com
-          </a>
-          <p>Telehealth platform that offers virtual doctor consultations</p>
-          <div class="phone-emulator">
-            <div class="video-container scale-large">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/z-AdAFdScmk?autoplay=1&mute=1&loop=1&playlist=z-AdAFdScmk"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/z-AdAFdScmk?autoplay=1&mute=1&loop=1&playlist=z-AdAFdScmk'><img src='assets/10.webp' alt='24Doc'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="24Doc">
-              </iframe>
+    <!-- Splenify Company Milestone -->
+    <div class="company-milestone">
+      <div class="company-title-pill">
+        <i class='bx bx-briefcase-alt-2'></i>
+        <strong>Splenify — International Mobile Agency</strong>
+        <span class="date">07/2024 – 07/2026</span>
+      </div>
+
+      <div class="projects-gallery">
+        <!-- 1. 24Doc Telehealth -->
+        <div class="case-card spotlight" data-category="flagship">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Telehealth • 12,000+ Users</span>
+              <a href="https://www.24hrdoc.com/" target="_blank" class="store-badge">
+                <i class='bx bx-globe'></i> 24hrdoc.com
+              </a>
+            </div>
+            <h3 class="case-title">24Doc Telehealth</h3>
+            <p class="case-desc">
+              Comprehensive virtual clinical care platform serving 12,000+ patients across 40+ clinical conditions with dynamic questionnaires and instant doctor review loops.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">State Machine</span>
+              <span class="spec-chip">Stripe</span>
+              <span class="spec-chip">Chat</span>
+            </div>
+            <ul class="case-bullets">
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Assessment State Machine:</strong> Engineered dynamic clinical triage flow with doctor review locks and branching question logic.</span>
+              </li>
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Consultation Checkout:</strong> Handled end-to-end checkout, virtual consultation scheduling, and real-time doctor-patient messaging.</span>
+              </li>
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Clinical Records & Rx Sync:</strong> Built encrypted patient health records, pharmacy prescription routing, and instant doctor sign-off loops.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/z-AdAFdScmk?autoplay=1&mute=1&loop=1&playlist=z-AdAFdScmk"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/z-AdAFdScmk?autoplay=1&mute=1&loop=1&playlist=z-AdAFdScmk'><img src='assets/10.webp' alt='24Doc Telehealth'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="24Doc Telehealth">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Makers Media -->
-        <div class="project-card">
-          <h3>Makers Media</h3>
-          <a href="https://apps.apple.com/us/app/makers-media-source/id6746875775" target="_blank" class="project-link-badge">
-            <i class='bx bxl-apple'></i> App Store
-          </a>
-          <p>Content aggregation app for creative professionals</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/g8iQpw-4qqk?autoplay=1&mute=1&loop=1&playlist=g8iQpw-4qqk"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/g8iQpw-4qqk?autoplay=1&mute=1&loop=1&playlist=g8iQpw-4qqk'><img src='assets/9.webp' alt='Makers Media'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Makers Media">
-              </iframe>
+        <!-- 2. SKRT Assistance -->
+        <div class="case-card spotlight" data-category="flagship logistics">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">On-Demand Roadside • BLoC</span>
+            </div>
+            <h3 class="case-title">SKRT Assistance</h3>
+            <p class="case-desc">
+              On-demand roadside dispatch orchestrating synchronized Requester and Responder workflows with real-time location tracking and geo-privacy safeguards.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">BLoC Pattern</span>
+              <span class="spec-chip">Stripe Holds</span>
+              <span class="spec-chip">Cloud Functions</span>
+            </div>
+            <ul class="case-bullets">
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Dual-Actor BLoC Engine:</strong> Handled simultaneous requester/responder state machines with atomic event dispatch, eliminating race conditions.</span>
+              </li>
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Stripe Authorization Lifecycle:</strong> Pre-service authorization holds during active service, automatic capture on completion, and refund fallback.</span>
+              </li>
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Geo-Privacy:</strong> Routed location updates through serverless functions to protect responder personal coordinates.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/hiZhjxZVN-Q?autoplay=1&mute=1&loop=1&playlist=hiZhjxZVN-Q"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/hiZhjxZVN-Q?autoplay=1&mute=1&loop=1&playlist=hiZhjxZVN-Q'><img src='assets/skrt.webp' alt='SKRT Assistance'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="SKRT Assistance">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- SKRT -->
-        <div class="project-card">
-          <h3>SKRT</h3>
-          <p>Roadside assistance platform with two roles: Requester (person needing help) and Responder</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/Fax6fwMRWs8?autoplay=1&mute=1&loop=1&playlist=Fax6fwMRWs8"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/Fax6fwMRWs8?autoplay=1&mute=1&loop=1&playlist=Fax6fwMRWs8'><img src='assets/skrt.webp' alt='SKRT'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="SKRT">
-              </iframe>
+        <!-- 3. Refer ALL -->
+        <div class="case-card spotlight" data-category="flagship realestate">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Real Estate Pipeline</span>
+            </div>
+            <h3 class="case-title">Refer ALL</h3>
+            <p class="case-desc">
+              Real estate referral ecosystem empowering brokerages and agents to track leads, mutual acceptance milestones, and closing transactions seamlessly.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">Cloud Firestore</span>
+              <span class="spec-chip">Stripe Subscriptions</span>
+              <span class="spec-chip">Chat</span>
+            </div>
+            <ul class="case-bullets">
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Referral Pipeline State Machine:</strong> Managed dual-agent state transitions from referral submission to legal disclosure and mutual signing.</span>
+              </li>
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Brokerage Billing:</strong> Handled Stripe recurring billing, 90-day trial periods, and team seats via Cloud Functions.</span>
+              </li>
+              <li>
+                <i class='bx bx-check-circle'></i>
+                <span><strong>Real-Time Chat & Debugging:</strong> Built Firestore chat with file and location sharing; isolated and resolved critical API encryption 500 edge cases.</span>
+              </li>
+            </ul>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/SGNXqKX5cUw?autoplay=1&mute=1&loop=1&playlist=SGNXqKX5cUw"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/SGNXqKX5cUw?autoplay=1&mute=1&loop=1&playlist=SGNXqKX5cUw'><img src='assets/Home (4).png' alt='Refer ALL'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Refer ALL">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Luke's Rental Property -->
-        <div class="project-card">
-          <h3>Luke's Rental Property</h3>
-          <p>Real estate property discovery platform with appointment scheduling.</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/qVzMUSqc_18?autoplay=1&mute=1&loop=1&playlist=qVzMUSqc_18"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/qVzMUSqc_18?autoplay=1&mute=1&loop=1&playlist=qVzMUSqc_18'><img src='assets/8.webp' alt='Luke&apos;s Rental Property'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Luke's Rental Property">
-              </iframe>
+        <!-- 4. Makers Media -->
+        <div class="case-card" data-category="hospitality">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">App Store Live</span>
+              <a href="https://apps.apple.com/us/app/makers-media-source/id6746875775" target="_blank" class="store-badge">
+                <i class='bx bxl-apple'></i> App Store
+              </a>
+            </div>
+            <h3 class="case-title">Makers Media</h3>
+            <p class="case-desc">
+              Curated multimedia news and creative content feed platform with offline caching and bookmark management for creative industry professionals.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">iOS Live</span>
+              <span class="spec-chip">REST APIs</span>
+              <span class="spec-chip">Caching</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/g8iQpw-4qqk?autoplay=1&mute=1&loop=1&playlist=g8iQpw-4qqk"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/g8iQpw-4qqk?autoplay=1&mute=1&loop=1&playlist=g8iQpw-4qqk'><img src='assets/9.webp' alt='Makers Media'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Makers Media">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Choose Your Champ -->
-        <div class="project-card">
-          <h3>Choose Your Champ</h3>
-          <p>Bodybuilding ranking app built with Flutter and Firebase</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/exNFEI11NWc?autoplay=1&mute=1&loop=1&playlist=exNFEI11NWc"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/exNFEI11NWc?autoplay=1&mute=1&loop=1&playlist=exNFEI11NWc'><img src='assets/1.webp' alt='Choose Your Champ'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Choose Your Champ">
-              </iframe>
+        <!-- 5. Efandex -->
+        <div class="case-card" data-category="realestate">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">App Store Live</span>
+              <a href="https://apps.apple.com/us/app/efandex/id6759389602" target="_blank" class="store-badge">
+                <i class='bx bxl-apple'></i> App Store
+              </a>
+            </div>
+            <h3 class="case-title">Efandex</h3>
+            <p class="case-desc">
+              Property discovery platform featuring interactive 360 unit previews, direct viewing appointment scheduling, and landlord messaging.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">iOS Live</span>
+              <span class="spec-chip">Google Maps</span>
+              <span class="spec-chip">Stateful Forms</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/qVzMUSqc_18?autoplay=1&mute=1&loop=1&playlist=qVzMUSqc_18"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/qVzMUSqc_18?autoplay=1&mute=1&loop=1&playlist=qVzMUSqc_18'><img src='assets/8.webp' alt='Efandex'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Efandex">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- InHome Styling -->
-        <div class="project-card">
-          <h3>InHome Styling</h3>
-          <p>Interior design showcase and booking app</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/CCFcrXqqm5Y?autoplay=1&mute=1&loop=1&playlist=CCFcrXqqm5Y"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/CCFcrXqqm5Y?autoplay=1&mute=1&loop=1&playlist=CCFcrXqqm5Y'><img src='https://img.youtube.com/vi/CCFcrXqqm5Y/hqdefault.jpg' alt='InHome Styling'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="InHome Styling">
-              </iframe>
+        <!-- 6. Choose Your Champ -->
+        <div class="case-card" data-category="hospitality">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Athletics & Rankings</span>
+            </div>
+            <h3 class="case-title">Choose Your Champ</h3>
+            <p class="case-desc">
+              Interactive fitness and competitive bodybuilding tournament ranking app with live leaderboards, custom animations, and community voting.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">Firebase</span>
+              <span class="spec-chip">Custom Motion</span>
+              <span class="spec-chip">Live Leaderboard</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/exNFEI11NWc?autoplay=1&mute=1&loop=1&playlist=exNFEI11NWc"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/exNFEI11NWc?autoplay=1&mute=1&loop=1&playlist=exNFEI11NWc'><img src='assets/1.webp' alt='Choose Your Champ'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Choose Your Champ">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Efandex -->
-        <div class="project-card">
-          <h3>Efandex</h3>
-          <a href="https://apps.apple.com/us/app/efandex/id6759389602" target="_blank" class="project-link-badge">
-            <i class='bx bxl-apple'></i> App Store
-          </a>
-          <p>Event space listing platform connecting homeowners with clients for venue rentals</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/TpaiofHknf0?autoplay=1&mute=1&loop=1&playlist=TpaiofHknf0"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/TpaiofHknf0?autoplay=1&mute=1&loop=1&playlist=TpaiofHknf0'><img src='assets/efandex.webp' alt='Efandex'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Efandex">
-              </iframe>
+        <!-- 7. InHome Styling -->
+        <div class="case-card" data-category="hospitality">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Design & Booking</span>
+            </div>
+            <h3 class="case-title">InHome Styling</h3>
+            <p class="case-desc">
+              Luxury interior architectural showcase connecting homeowners with certified interior designers for customized room consultation sessions.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">Visual Grid</span>
+              <span class="spec-chip">Booking UI</span>
+              <span class="spec-chip">Slivers</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/CCFcrXqqm5Y?autoplay=1&mute=1&loop=1&playlist=CCFcrXqqm5Y"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/CCFcrXqqm5Y?autoplay=1&mute=1&loop=1&playlist=CCFcrXqqm5Y'><img src='https://img.youtube.com/vi/CCFcrXqqm5Y/hqdefault.jpg' alt='InHome Styling'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="InHome Styling">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Empathy -->
-        <div class="project-card">
-          <h3>Empathy</h3>
-          <p>Mental health and self-care tracking app</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/MmL2Hwz-Lro?autoplay=1&mute=1&loop=1&playlist=MmL2Hwz-Lro"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/MmL2Hwz-Lro?autoplay=1&mute=1&loop=1&playlist=MmL2Hwz-Lro'><img src='assets/7.webp' alt='Empathy'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Empathy">
-              </iframe>
+        <!-- 8. Empathy -->
+        <div class="case-card" data-category="hospitality">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Health & Wellness</span>
+            </div>
+            <h3 class="case-title">Empathy Wellness</h3>
+            <p class="case-desc">
+              Mindfulness and mental wellness tracking suite with interactive mood journals, guided breathing sessions, and encrypted client-side storage.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">Local DB</span>
+              <span class="spec-chip">Haptic Engine</span>
+              <span class="spec-chip">Theming</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/MmL2Hwz-Lro?autoplay=1&mute=1&loop=1&playlist=MmL2Hwz-Lro"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/MmL2Hwz-Lro?autoplay=1&mute=1&loop=1&playlist=MmL2Hwz-Lro'><img src='assets/7.webp' alt='Empathy'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Empathy">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Truck App -->
-        <div class="project-card">
-          <h3>Truck App</h3>
-          <p>Logistics app for transport fleet management</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/xyTN763-WAw?autoplay=1&mute=1&loop=1&playlist=xyTN763-WAw"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/xyTN763-WAw?autoplay=1&mute=1&loop=1&playlist=xyTN763-WAw'><img src='assets/4.webp' alt='Truck App'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Truck App">
-              </iframe>
+        <!-- 10. Truck App -->
+        <div class="case-card" data-category="logistics">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Fleet Logistics</span>
+            </div>
+            <h3 class="case-title">Truck Fleet Logistics</h3>
+            <p class="case-desc">
+              Enterprise transport freight and logistics management system for fleet drivers, shipment manifests, live transit milestones, and digital signatures.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">GPS Sync</span>
+              <span class="spec-chip">Manifest Parser</span>
+              <span class="spec-chip">Offline Cache</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/xyTN763-WAw?autoplay=1&mute=1&loop=1&playlist=xyTN763-WAw"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/xyTN763-WAw?autoplay=1&mute=1&loop=1&playlist=xyTN763-WAw'><img src='assets/4.webp' alt='Truck App'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Truck App">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
-
-
       </div>
     </div>
 
-    <div style="height: 50px;"></div> <!-- creates 50px vertical space -->
+    <!-- Farkito Company Milestone -->
+    <div class="company-milestone">
+      <div class="company-title-pill">
+        <i class='bx bx-briefcase-alt-2'></i>
+        <strong>Farkito — Hospitality Solutions</strong>
+        <span class="date">02/2024 – 05/2024</span>
+      </div>
 
-    <!-- Farkito Projects -->
-    <div class="company-group">
-    <div class="company-header">Built at Farkito (02/2024 – 05/2024)</div>
-
-      <div class="projects-grid">
-
-        <!-- Diyafa Staff -->
-        <div class="project-card">
-          <h3>Diyafa Staff</h3>
-          <p>Hotel service management for employees</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI'><img src='assets/2.webp' alt='Diyafa Staff'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Diyafa Staff">
-              </iframe>
+      <div class="projects-gallery">
+        <!-- 11. Diyafa Staff -->
+        <div class="case-card" data-category="hospitality">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Staff Operations</span>
+            </div>
+            <h3 class="case-title">Diyafa Staff Portal</h3>
+            <p class="case-desc">
+              Real-time service ticket management, housekeeping dispatch, and order fulfillment platform for hotel operations staff.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">Live Alerts</span>
+              <span class="spec-chip">Ticket Routing</span>
+              <span class="spec-chip">Concurrency</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/mx77hONTxXI?autoplay=1&mute=1&loop=1&playlist=mx77hONTxXI'><img src='assets/2.webp' alt='Diyafa Staff'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Diyafa Staff">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Diyafa Customer -->
-        <div class="project-card">
-          <h3>Diyafa Customer</h3>
-          <p>Hotel guest app with food orders and services</p>
-          <div class="phone-emulator">
-            <div class="video-container">
-              <iframe
-                loading="lazy"
-                src="https://www.youtube-nocookie.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I"
-                srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#000}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:80px;width:80px;border-radius:50%;background:rgba(0,200,255,.85);display:flex;align-items:center;justify-content:center;font-size:40px;color:#fff;cursor:pointer;box-shadow:0 0 30px rgba(0,200,255,.5)}</style><a href='https://www.youtube-nocookie.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I'><img src='assets/3.webp' alt='Diyafa Customer'><span>&#x25BA;</span></a>"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                title="Diyafa Customer">
-              </iframe>
+        <!-- 12. Diyafa Customer -->
+        <div class="case-card" data-category="hospitality">
+          <div>
+            <div class="case-card-header">
+              <span class="case-tag">Guest Concierge</span>
+            </div>
+            <h3 class="case-title">Diyafa Guest Concierge</h3>
+            <p class="case-desc">
+              Guest self-service application enabling digital check-in, contactless room dining orders, housekeeping requests, and concierge requests.
+            </p>
+            <div class="case-specs">
+              <span class="spec-chip">Flutter</span>
+              <span class="spec-chip">In-Room Dining</span>
+              <span class="spec-chip">Cart State</span>
+              <span class="spec-chip">i18n</span>
+            </div>
+          </div>
+          <div class="chassis-wrap">
+            <div class="mobbin-chassis">
+              <div class="video-container">
+                <iframe
+                  loading="lazy"
+                  src="https://www.youtube-nocookie.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I"
+                  srcdoc="<style>*{padding:0;margin:0;overflow:hidden}html,body{height:100%;background:#0B0C12}a{display:block;height:100%}img{position:absolute;width:100%;height:100%;top:0;left:0;object-fit:cover}span{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);height:68px;width:68px;border-radius:50%;background:#00D2FF;display:flex;align-items:center;justify-content:center;font-size:28px;color:#0B0C12;cursor:pointer;box-shadow:0 0 35px rgba(0,210,255,.6);transition:transform .2s}span:hover{transform:translate(-50%,-50%) scale(1.1)}</style><a href='https://www.youtube-nocookie.com/embed/NEXkgErGV2I?autoplay=1&mute=1&loop=1&playlist=NEXkgErGV2I'><img src='assets/3.webp' alt='Diyafa Customer'><span>&#x25BA;</span></a>"
+                  allow="autoplay; encrypted-media"
+                  allowfullscreen
+                  title="Diyafa Customer">
+                </iframe>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-    <!-- Contact Section -->
+
+  <!-- Section 4: Contact Section (Editorial Split Card) -->
   <section class="contact" id="contact">
-    <h2 class="section-heading">Contact Me!</h2>
-    <p class="email-text">basantadeleissa@gmail.com</p>
-    <form action="#" id="contact-form">
-      <div class="input-box">
-        <input type="text" id="name" placeholder="Full Name" required>
-        <input type="email" id="email" placeholder="Email Address" required>
+    <div class="section-head">
+      <div class="editorial-tag">Get in Touch</div>
+      <h2 class="section-title">Let's Build Something <span class="serif-italic">Remarkable</span></h2>
+      <p class="section-subtitle">
+        Whether you have a product to architect from scratch, need a senior Flutter specialist to eliminate jank, or have an open engineering role.
+      </p>
+    </div>
+
+    <div class="contact-split">
+      <!-- Left: Direct Info Card -->
+      <div class="contact-side-info">
+        <div>
+          <h3>Let's grab a virtual coffee ☕</h3>
+          <p>
+            I am currently considering full-time remote roles, technical leadership positions, and high-impact contracts with design-focused teams.
+          </p>
+
+          <div class="contact-pills-list">
+            <!-- Email Copy Pill -->
+            <div class="touch-pill" id="copy-email-trigger" title="Click to copy email address">
+              <div class="touch-pill-left">
+                <div class="touch-glyph"><i class='bx bx-envelope'></i></div>
+                <div>
+                  <div class="touch-label">Direct Email</div>
+                  <div class="touch-val">basantadeleissa@gmail.com</div>
+                </div>
+              </div>
+              <span class="copy-pill-badge"><i class='bx bx-copy'></i> Copy</span>
+            </div>
+
+            <!-- LinkedIn Pill -->
+            <a href="https://www.linkedin.com/in/basant-eissa-bb29791b3/" target="_blank" class="touch-pill" title="View LinkedIn Profile">
+              <div class="touch-pill-left">
+                <div class="touch-glyph"><i class='bx bxl-linkedin'></i></div>
+                <div>
+                  <div class="touch-label">LinkedIn</div>
+                  <div class="touch-val">linkedin.com/in/basant-eissa</div>
+                </div>
+              </div>
+              <span class="copy-pill-badge"><i class='bx bx-link-external'></i> View</span>
+            </a>
+
+            <!-- Availability -->
+            <div class="touch-pill">
+              <div class="touch-pill-left">
+                <div class="touch-glyph"><i class='bx bx-map-pin'></i></div>
+                <div>
+                  <div class="touch-label">Location & Hours</div>
+                  <div class="touch-val">Remote Worldwide (Flexible GMT+2)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="response-note">
+          <i class='bx bxs-check-circle'></i>
+          <span>Average response turnaround: under 24 hours</span>
+        </div>
       </div>
-      <div class="input-box">
-        <input type="text" id="phone" inputmode="numeric" placeholder="Phone Number" required>
-        <input type="text" id="subject" placeholder="Email Subject" required>
+
+      <!-- Right: Frosted Form -->
+      <div class="contact-side-form">
+        <form action="#" id="contact-form">
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="name" class="form-label">Your Name</label>
+              <input type="text" id="name" class="form-input" placeholder="e.g. Sarah Jenkins" required />
+            </div>
+            <div class="form-group">
+              <label for="email" class="form-label">Email Address</label>
+              <input type="email" id="email" class="form-input" placeholder="sarah@company.com" required />
+            </div>
+          </div>
+
+          <div class="form-row-2">
+            <div class="form-group">
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="text" id="phone" inputmode="numeric" class="form-input" placeholder="+1 (555) 000-0000" required />
+            </div>
+            <div class="form-group">
+              <label for="subject" class="form-label">Subject</label>
+              <input type="text" id="subject" class="form-input" placeholder="Flutter App Project / Remote Role" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message" class="form-label">Your Message</label>
+            <textarea id="message" rows="5" class="form-textarea" placeholder="Tell me about your product, what you're building, and timeline..." required></textarea>
+          </div>
+
+          <label class="file-row" for="attachment">
+            <i class='bx bx-paperclip'></i>
+            <span class="file-caption" id="file-caption">Attach project brief or specification (optional)</span>
+            <input type="file" id="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt,.zip" />
+          </label>
+
+          <button type="submit" id="submit-btn" class="btn-send">
+            <i class='bx bx-send'></i>
+            <span>Send Message</span>
+          </button>
+        </form>
       </div>
-      <textarea id="message" cols="30" rows="10" placeholder="Your Message" required></textarea>
-      <input type="file" id="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.txt,.zip" />
-      <input type="submit" id="submit-btn" value="Send Message" class="btn">
-    </form>
+    </div>
   </section>
-  <!-- Footer -->
+
+  <!-- Clean Signature Footer -->
   <footer class="footer">
-    <div class="footer-text">
-      <p>Copyright &copy; 2025 by BAE | All Rights Reserved</p>
+    <div class="footer-copy">
+      <p>Engineered with precision by <strong>Basant Adel Eissa</strong> © 2026. Built for production iOS & Android.</p>
     </div>
-    <div class="footer-iconTop">
-      <a href="#home"><i class='bx bx-up-arrow-alt'></i></a>
-    </div>
+    <a href="#home" class="back-top-btn" title="Back to top">
+      <i class='bx bx-up-arrow-alt'></i>
+    </a>
   </footer>
 
+  <!-- Toast Notification -->
+  <div class="toast-notice" id="toast-notice">
+    <i class='bx bx-check-circle'></i>
+    <span>Copied! Let's talk ☕</span>
+  </div>
+
   <!-- Scripts -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script src="script.js" defer></script>
 </body>

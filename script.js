@@ -1,309 +1,196 @@
-// ─── Cursor Glow ───
-const cursorGlow = document.getElementById('cursor-glow');
-if (cursorGlow && window.innerWidth > 768) {
-  document.addEventListener('mousemove', (e) => {
-    cursorGlow.style.left = e.clientX + 'px';
-    cursorGlow.style.top = e.clientY + 'px';
-    cursorGlow.classList.add('active');
+// ═════════════════════════════════════════════════════════════════════
+// BASANT ADEL EISSA — BESPOKE CRAFT PORTFOLIO SCRIPT
+// Inspirations: Mobbin, Pinterest, Cosmos
+// Features: Category Filters, One-Click Clipboard Copy, EmailJS, Sticky Nav
+// ═════════════════════════════════════════════════════════════════════
+
+// ─── 1. Sticky Header & Active Scrollspy Navigation ───
+const header = document.querySelector('.header');
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+const navLinks = document.querySelectorAll('header nav a');
+const sections = document.querySelectorAll('section');
+
+window.addEventListener('scroll', () => {
+  if (header) {
+    header.classList.toggle('sticky', window.scrollY > 40);
+  }
+
+  // Active section tracking
+  let currentSectionId = '';
+  sections.forEach((sec) => {
+    const secTop = sec.offsetTop - 180;
+    const secHeight = sec.offsetHeight;
+    if (window.scrollY >= secTop && window.scrollY < secTop + secHeight) {
+      currentSectionId = sec.getAttribute('id');
+    }
   });
-  document.addEventListener('mouseleave', () => {
-    cursorGlow.classList.remove('active');
+
+  navLinks.forEach((link) => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === `#${currentSectionId}`) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Mobile Drawer
+if (menuIcon && navbar) {
+  menuIcon.addEventListener('click', () => {
+    menuIcon.classList.toggle('bx-x');
+    navbar.classList.toggle('active');
+  });
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      menuIcon.classList.remove('bx-x');
+      navbar.classList.remove('active');
+    });
   });
 }
 
-// ─── Particle Canvas ───
-document.addEventListener('DOMContentLoaded', function initParticles() {
-  const canvas = document.getElementById('particles-canvas');
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  let particles = [];
-  const PARTICLE_COUNT = 55;
-  const CONNECTION_DIST = 110;
-
-  function resize() {
-    const section = canvas.parentElement;
-    canvas.width = section.offsetWidth;
-    canvas.height = section.offsetHeight;
-    // Repopulate on resize so particles stay in bounds
-    createParticles();
-  }
-
-  function createParticles() {
-    particles = [];
-    for (let i = 0; i < PARTICLE_COUNT; i++) {
-      particles.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        vx: (Math.random() - 0.5) * 0.45,
-        vy: (Math.random() - 0.5) * 0.45,
-        r: Math.random() * 1.8 + 0.8,
-      });
-    }
-  }
-
-  function draw() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Connections
-    for (let i = 0; i < particles.length; i++) {
-      for (let j = i + 1; j < particles.length; j++) {
-        const dx = particles[i].x - particles[j].x;
-        const dy = particles[i].y - particles[j].y;
-        const dist = Math.sqrt(dx * dx + dy * dy);
-        if (dist < CONNECTION_DIST) {
-          ctx.strokeStyle = `rgba(73, 209, 171, ${0.18 * (1 - dist / CONNECTION_DIST)})`;
-          ctx.lineWidth = 0.6;
-          ctx.beginPath();
-          ctx.moveTo(particles[i].x, particles[i].y);
-          ctx.lineTo(particles[j].x, particles[j].y);
-          ctx.stroke();
-        }
-      }
-    }
-
-    // Particles
-    particles.forEach((p) => {
-      ctx.fillStyle = 'rgba(73, 209, 171, 0.55)';
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fill();
-
-      p.x += p.vx;
-      p.y += p.vy;
-
-      if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-      if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-    });
-
-    requestAnimationFrame(draw);
-  }
-
-  window.addEventListener('resize', resize);
-  resize();
-  draw();
-});
-
-// Toggle icon navbar
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-
-menuIcon.onclick = () => {
-    menuIcon.classList.toggle('bx-x');
-    navbar.classList.toggle('active');
-};
-
-// Scroll section active link
-let sections = document.querySelectorAll('section');
-let navLinks = document.querySelectorAll('header nav a');
-
-window.onscroll = () => {
-    let top = window.scrollY;
-
-    sections.forEach(sec => {
-        let offset = sec.offsetTop - 150; // Adjust based on header height
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-
-        if (top >= offset && top < offset + height) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            let activeLink = document.querySelector(`header nav a[href="#${id}"]`);
-            if (activeLink) {
-                activeLink.classList.add('active');
-            }
-        }
-    });
-
-    let header = document.querySelector('header');
-    header.classList.toggle('sticky', window.scrollY > 100);
-};
-
-// Close menu when a navbar link is clicked
-navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-        menuIcon.classList.remove('bx-x');
-        navbar.classList.remove('active');
-    });
-});
-
-// Remove ScrollReveal for immediate visibility (no animation) for About and Projects sections
+// ─── 2. Mobbin-Style Category Filter Tray ───
 document.addEventListener('DOMContentLoaded', () => {
-    // Directly add the 'show' class to the about and project sections without animation
-    const aboutCards = document.querySelectorAll('.about-card');
-    const projectCards = document.querySelectorAll('.project-card');
-    const companyGroups = document.querySelectorAll('.company-group');
+  const pillTabs = document.querySelectorAll('.pill-tab');
+  const caseCards = document.querySelectorAll('.case-card');
 
-    aboutCards.forEach(card => {
-        card.classList.add('show');
+  pillTabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      pillTabs.forEach((t) => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const filterValue = tab.getAttribute('data-filter');
+
+      caseCards.forEach((card) => {
+        const category = card.getAttribute('data-category') || '';
+        if (filterValue === 'all' || category.includes(filterValue)) {
+          card.style.display = 'flex';
+          card.style.opacity = '0';
+          card.style.transform = 'translateY(12px)';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 40);
+        } else {
+          card.style.display = 'none';
+        }
+      });
     });
-
-    projectCards.forEach(card => {
-        card.classList.add('show');
-    });
-
-    companyGroups.forEach(group => {
-        group.classList.add('show');
-    });
-
-    // Apply ScrollReveal to only Home and Contact sections
-    ScrollReveal({ 
-        distance: '80px',
-        duration: 2000,
-        delay: 200
-    });
-
-    // Animations for Home Section
-    ScrollReveal().reveal('.home-content, .heading', { origin: 'top' });
-    ScrollReveal().reveal('.home-img, .services-container, .portfolio-box, .contact form', { origin: 'bottom' });
-    ScrollReveal().reveal('.home-content h1, .about-img', { origin: 'left' });
-    ScrollReveal().reveal('.home-content p, .about-content', { origin: 'right' });
+  });
 });
 
-// Initialize EmailJS with your Public Key
-emailjs.init("w59PalM8_wOuhXWcr"); // Make sure this is your correct public key
+// ─── 3. One-Click Copy Email with Delightful Toast ───
+const copyEmailTrigger = document.getElementById('copy-email-trigger');
+const toastNotice = document.getElementById('toast-notice');
 
-// Get the form element
-const form = document.getElementById('contact-form');
+if (copyEmailTrigger && toastNotice) {
+  copyEmailTrigger.addEventListener('click', async () => {
+    const emailToCopy = 'basantadeleissa@gmail.com';
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        await navigator.clipboard.writeText(emailToCopy);
+      } else {
+        const tempInput = document.createElement('input');
+        tempInput.value = emailToCopy;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand('copy');
+        document.body.removeChild(tempInput);
+      }
 
-// Add an event listener to the form submission
-form.addEventListener('submit', async (e) => {
+      toastNotice.classList.add('show');
+      setTimeout(() => {
+        toastNotice.classList.remove('show');
+      }, 2600);
+    } catch (err) {
+      console.error('Failed to copy email:', err);
+    }
+  });
+}
+
+// ─── 4. File Upload Display ───
+const attachmentInput = document.getElementById('attachment');
+const fileCaption = document.getElementById('file-caption');
+
+if (attachmentInput && fileCaption) {
+  attachmentInput.addEventListener('change', () => {
+    if (attachmentInput.files.length > 0) {
+      fileCaption.textContent = `Attached: ${attachmentInput.files[0].name}`;
+      fileCaption.style.color = '#00D2FF';
+    } else {
+      fileCaption.textContent = 'Attach project brief or specification (optional)';
+      fileCaption.style.color = '';
+    }
+  });
+}
+
+// ─── 5. EmailJS Integration ───
+if (typeof emailjs !== 'undefined') {
+  emailjs.init('w59PalM8_wOuhXWcr');
+}
+
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
-    
-    // Change button state during submission
+
     const submitBtn = document.getElementById('submit-btn');
-    const originalBtnText = submitBtn.value;
-    submitBtn.value = 'Sending...';
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> <span>Sending...</span>";
     submitBtn.disabled = true;
 
-    // Get form data
     const templateParams = {
-        from_name: document.getElementById('name').value.trim(),
-        from_email: document.getElementById('email').value.trim(),
-        phone: document.getElementById('phone').value.trim(),
-        subject: document.getElementById('subject').value.trim(),
-        message: document.getElementById('message').value.trim(),
+      from_name: document.getElementById('name').value.trim(),
+      from_email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      subject: document.getElementById('subject').value.trim(),
+      message: document.getElementById('message').value.trim(),
     };
 
-    // Validate form fields
-    if (!templateParams.from_name || !templateParams.from_email || 
-        !templateParams.phone || !templateParams.subject || !templateParams.message) {
-        alert('Please fill all fields');
-        submitBtn.value = originalBtnText;
-        submitBtn.disabled = false;
-        return;
+    if (
+      !templateParams.from_name ||
+      !templateParams.from_email ||
+      !templateParams.phone ||
+      !templateParams.subject ||
+      !templateParams.message
+    ) {
+      alert('Please fill in all required fields.');
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      return;
     }
 
-    // Validate email format
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(templateParams.from_email)) {
-        alert('Please enter a valid email address.');
-        submitBtn.value = originalBtnText;
-        submitBtn.disabled = false;
-        return;
+      alert('Please enter a valid email address.');
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      return;
     }
-
-    // Validate phone number (must be at least 10 digits)
-    const phonePattern = /^\d{10,}$/;
-    if (!phonePattern.test(templateParams.phone)) {
-        alert('Please enter a valid phone number (at least 10 digits).');
-        submitBtn.value = originalBtnText;
-        submitBtn.disabled = false;
-        return;
-    }
-
-    console.log('Attempting to send with:', {
-        service: "service_nj9sf0h",
-        template: "template_nkq8523",
-        params: templateParams
-    });
 
     try {
-        // First verify EmailJS is properly initialized
-        if (!emailjs || typeof emailjs.send !== 'function') {
-            throw new Error('EmailJS not properly initialized');
+      const response = await emailjs.send(
+        'service_nj9sf0h',
+        'template_nkq8523',
+        templateParams
+      );
+
+      if (response.status === 200) {
+        alert('Thank you! Your message has been sent successfully. I will get back to you shortly.');
+        contactForm.reset();
+        if (fileCaption) {
+          fileCaption.textContent = 'Attach project brief or specification (optional)';
+          fileCaption.style.color = '';
         }
-
-        // Add timeout for the email sending
-        const timeoutPromise = new Promise((_, reject) => {
-            setTimeout(() => {
-                reject(new Error('Request timed out (10 seconds)'));
-            }, 10000);
-        });
-
-        // Attempt to send email
-        const sendPromise = emailjs.send(
-            "service_nj9sf0h", 
-            "template_nkq8523", 
-            templateParams
-        );
-
-        const response = await Promise.race([sendPromise, timeoutPromise]);
-        
-        console.log('EmailJS Response:', response);
-        
-        if (response.status === 200) {
-            alert('Message sent successfully! Check your EmailJS dashboard to verify.');
-            form.reset();
-        } else {
-            throw new Error(`Unexpected status: ${response.status}`);
-        }
+      } else {
+        throw new Error(`Unexpected status code: ${response.status}`);
+      }
     } catch (error) {
-        console.error('Email sending failed:', error);
-        
-        let errorMessage = 'Failed to send message. ';
-        
-        if (error.message.includes('timed out')) {
-            errorMessage += 'The request took too long.';
-        } else if (error.text) {
-            errorMessage += error.text;
-        } else if (error.message) {
-            errorMessage += error.message;
-        }
-        
-        alert(errorMessage);
-        
-        // Additional debug info
-        console.log('EmailJS SDK Status:', {
-            initialized: !!emailjs,
-            hasSendMethod: typeof emailjs.send === 'function',
-            userId: emailjs.userID
-        });
+      console.error('EmailJS error:', error);
+      alert('Failed to send message via form. Please email directly at basantadeleissa@gmail.com');
     } finally {
-        submitBtn.value = originalBtnText;
-        submitBtn.disabled = false;
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
     }
-});
-
-// Typed.js initialization
-document.addEventListener('DOMContentLoaded', function() {
-    const typed = new Typed('.multiple-text', {
-        strings: ['Flutter Developer', 'Mobile App Developer', 'Software Engineer'],
-        typeSpeed: 100,
-        backSpeed: 100,
-        backDelay: 1000,
-        loop: true
-    });
-});
-
-document.addEventListener('DOMContentLoaded', function () {
-    // ─── Scroll animations ───
-    const animateOnScroll = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
-                animateOnScroll.unobserve(entry.target);
-            }
-        });
-    }, {
-        threshold: 0.5,
-        rootMargin: '0px 0px -50px 0px'
-    });
-
-    document.querySelectorAll('.about-card, .company-group, .project-card').forEach(el => {
-        animateOnScroll.observe(el);
-    });
-
-    // Iframe accessibility
-    document.querySelectorAll('iframe').forEach(iframe => {
-        iframe.setAttribute('title', iframe.getAttribute('title') || 'Project Demo');
-    });
-});
+  });
+}
